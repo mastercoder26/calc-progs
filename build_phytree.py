@@ -37,6 +37,8 @@ FL = use("FL")
 GR = use("GR")
 QP = use("QP")
 Q2 = use("Q2")
+Z = use("Z")
+Z0 = use("Z0")
 
 BAD = {}
 CUSTOM = {}
@@ -492,44 +494,95 @@ def solver_spring_k(lines, back):
 def solve_placeholder(lines, back):
     solver_no(lines, back)
 
+DEFINITIONS = [
+    ("Z1", "EQUIL", "EQUIL", [
+        ["EQUILIBRIUM", "MEANS A=0", "FNET=0"],
+        ["STATIC: V=0", "DYNAMIC: V CONST", "BOTH A=0"],
+        ["ROT EQ TOO:", "TAU NET=0", "NO ANG ACC"],
+        ["TRAP:", "V=0 ALONE", "NOT ENOUGH"],
+    ]),
+    ("Z2", "SHM", "SHM", [
+        ["SHM REQUIRES", "RESTORE FORCE", "TOWARD EQ"],
+        ["FORCE MUST BE", "PROPORTIONAL", "TO DISPLACE"],
+        ["F=-KX", "A=-W^2X", "PERIOD FIXED"],
+        ["TRAP:", "REPEATS NOT", "ALWAYS SHM"],
+    ]),
+    ("Z3", "CONSERVED", "CONSERVED", [
+        ["CONSERVED MEANS", "TOTAL SAME", "FOR SYSTEM"],
+        ["P CONSERVED IF", "NO EXT IMPULSE"],
+        ["L CONSERVED IF", "NO EXT TORQUE"],
+        ["MECH ENERGY IF", "NO NONCONS WORK"],
+    ]),
+    ("Z4", "SYSTEMS", "SYSTEM", [
+        ["SYSTEM CHOICE", "DECIDES INT/EXT", "FORCES"],
+        ["INTERNAL FORCES", "CAN MOVE ENERGY", "INSIDE SYSTEM"],
+        ["EXTERNAL WORK", "CHANGES SYSTEM", "ENERGY/MOM"],
+        ["TRAP:", "DEFINE SYSTEM", "BEFORE FORMULA"],
+    ]),
+    ("Z5", "GRAPHS", "GRAPHS", [
+        ["SLOPE MEANS", "Y CHANGE OVER", "X CHANGE"],
+        ["AREA UNDER", "GRAPH CAN MEAN", "ACCUMULATION"],
+        ["SHAPE CHECK:", "LINEAR VS QUAD", "VS INVERSE"],
+        ["TRAP:", "READ AXES", "BEFORE EQUATION"],
+    ]),
+    ("Z6", "IMPULSE", "IMPULSE", [
+        ["IMPULSE IS", "CHANGE IN MOM", "J=DELTA P"],
+        ["FAVG=J/DT", "SAME DT MEANS", "MORE J MORE F"],
+        ["BOUNCE HAS", "BIG DELTA P", "DIR REVERSES"],
+        ["WALL TRAP:", "ONLY PERP MOM", "CHANGES"],
+    ]),
+    ("Z7", "TORQUE", "TORQUE", [
+        ["TORQUE CAUSES", "ANGULAR ACCEL", "TAU=RF SINTH"],
+        ["USE PERP DIST", "OR PERP FORCE", "NOT BOTH"],
+        ["ABOUT CENTER:", "CENTRAL FORCE", "GIVES TAU=0"],
+        ["TRAP:", "AXIS CHOICE", "MATTERS"],
+    ]),
+    ("Z8", "FRQ WORDS", "FRQ WORDS", [
+        ["JUSTIFY:", "CLAIM PLUS", "PHYSICS REASON"],
+        ["DERIVE:", "START GENERAL", "SHOW ALGEBRA"],
+        ["COMPARE:", "SAME/DIFF AND", "WHY"],
+        ["GRAPH:", "AXES UNITS", "SHAPE SLOPE"],
+    ]),
+]
+
 TOPICS = [
     (KI, "KIN", [
         ("K1", "AVG ACCEL", "AVG A", solver_avg_accel,
-         ["CHANGE IN V", "OVER TIME"],
+         ["AVERAGE ACCEL", "IS CHANGE IN", "VELOCITY/TIME"],
          ["A=(VF-VI)/T"],
-         ["FIND VI,VF,T", "SUBTRACT V", "DIVIDE BY T"],
-         ["T MUST BE >0", "SIGNS MATTER"]),
+         ["CHOOSE + DIR", "DO VF-VI", "DIVIDE BY T"],
+         ["TIME NOT ZERO", "SIGNS MATTER"]),
         ("K2", "FREE FALL", "T^2", solver_freefall_ratio,
-         ["FROM REST:", "D PROP T^2", "G CONSTANT"],
+         ["FROM REST:", "DISTANCE GROWS", "LIKE TIME^2"],
          ["D2=D1(T2/T1)^2"],
          ["USE RATIO", "NO MASS NEEDED", "SAME G ONLY"],
          ["NOT LINEAR IN T", "2T MEANS 4D"]),
         ("K3", "PROJ TIME", "AIR TIME", solver_projectile_time,
-         ["LEVEL GROUND", "VERT MOTION", "SETS TIME"],
+         ["LEVEL GROUND:", "VERT MOTION", "SETS AIR TIME"],
          ["T=2V0SIN(TH)/G"],
-         ["USE VY0", "UP TIME=VY0/G", "DOUBLE IT"],
+         ["USE VY0", "TIME UP=VY0/G", "DOUBLE IT"],
          ["DEGREES MODE", "ONLY LEVEL LAND"]),
         ("K4", "UP/DOWN KE", "KE UP", solve_placeholder,
-         ["ACCEL DOWN", "MOVING UP", "SPEED DROPS"],
+         ["MOVING UP BUT", "ACCEL DOWN:", "SPEED DROPS"],
          ["KE=.5MV^2"],
-         ["ASK SPEED", "IF SPEED DOWN", "KE DOWN"],
+         ["KE USES SPEED", "SPEED DOWN", "MEANS KE DOWN"],
          ["DIRECTION NOT KE", "KE USES SPEED"]),
         ("K5", "TOP PATH", "TOP PATH", solve_placeholder,
          ["AT TOP:", "VY=0 BUT", "GRAVITY ACTS"],
          ["FNET=MG DOWN", "A=G DOWN"],
-         ["CHECK FORCES", "IF FNET NOT 0", "NO EQUIL"],
-         ["VX CAN EXIST", "NOT EQUIL"]),
+         ["EQUIL NEEDS", "FNET=0", "HERE FNET DOWN"],
+         ["V=0 NOT ENOUGH", "VX CAN EXIST"]),
     ]),
     (DY, "DYN", [
         ("D1", "N3 GRAPH", "N3 PAIR", solve_placeholder,
-         ["FORCE PAIRS", "EQUAL MAG", "OPP DIR"],
+         ["N3 PAIRS ACT", "ON DIFF OBJECTS", "SAME TIME"],
          ["FAB=-FBA"],
          ["MATCH TIMES", "SAME SIZE", "OPP SIGN"],
          ["DIFF OBJECTS", "NOT CANCEL"]),
         ("D2", "FRIC STOP", "FRIC STOP", solver_friction,
-         ["FRICTION DOES", "WORK TO STOP"],
+         ["KINETIC FRIC", "DOES NEG WORK", "UNTIL V=0"],
          ["D=V^2/(2MU G)"],
-         ["MU MG GIVES A", "M CANCELS", "USE KIN"],
+         ["F=MU MG", "A=MU G", "THEN USE KIN"],
          ["MASS CANCELS", "MU NOT M"]),
         ("D3", "FNET VEC", "FNET VEC", solver_net_force,
          ["ADD COMPONENTS", "X AND Y SEP"],
@@ -537,9 +590,9 @@ TOPICS = [
          ["SUM X", "SUM Y", "PYTHAG MAG"],
          ["SIGNS MATTER", "DO NOT ADD MAG"]),
         ("D4", "CIRC F->A", "F TO A", lambda l,b: solver_div(l,b,[("F N","A"),("M KG","B")],"A/B","A","M CANT BE 0"), 
-         ["NET FORCE", "CAUSES ACCEL"],
+         ["NET FORCE", "CAUSES ACCEL", "IN ITS DIR"],
          ["A=FNET/M"],
-         ["ID NET F", "DIVIDE BY M"],
+         ["ID NET F", "DIVIDE BY M", "DIR SAME AS F"],
          ["CENTRIPETAL IS", "NET INWARD"]),
         ("D5", "POWER A", "POWER", solver_power,
          ["SAME ACCEL", "F=MA", "POWER USES V"],
@@ -554,12 +607,12 @@ TOPICS = [
          ["USE FORCE COMP", "TH FROM MOTION"],
          ["90 DEG GIVES 0", "DEG MODE"]),
         ("E2", "INEL KE", "INELASTIC", solve_placeholder,
-         ["STICK COLLIDE", "P CONSERVED", "KE NOT"],
+         ["STICK COLLISION:", "P CONSERVED", "KE NOT"],
          ["KI NOT = KF"],
-         ["USE MOMENTUM", "THEN CHECK KE"],
+         ["USE MOMENTUM", "FOR VF", "KE USUALLY LOST"],
          ["FINAL KE LESS", "P STILL CONS"]),
         ("E3", "MECH SYS", "SYSTEM", solve_placeholder,
-         ["DEFINE SYSTEM", "FIRST"],
+         ["DEFINE SYSTEM", "BEFORE ENERGY", "EQUATIONS"],
          ["MECH=K+U"],
          ["IF PERSON EXT", "REMOVES ENERGY", "MECH DROPS"],
          ["EARTH-BOOK", "CAN LOSE MECH"]),
@@ -581,9 +634,9 @@ TOPICS = [
          ["CHOOSE + DIR", "SUM P BEFORE", "DIV MASS SUM"],
          ["KE NOT CONS", "SIGNS MATTER"]),
         ("M3", "EXP COM", "EXP COM", solve_placeholder,
-         ["NO EXT FORCE", "COM PATH SAME"],
+         ["EXPLOSION:", "INTERNAL FORCES", "MOVE PIECES"],
          ["XCOM FOLLOWS", "OLD MOTION"],
-         ["TRACK COM", "PIECES SPREAD", "COM LANDS SAME"],
+         ["NO EXT FORCE:", "COM MOTION", "UNCHANGED"],
          ["COM NOT A PIECE", "EXT F CHANGES"]),
         ("M4", "BOUNCE F", "BOUNCE F", solve_placeholder,
          ["BOUNCE REVERSES", "MOMENTUM MORE"],
@@ -603,7 +656,7 @@ TOPICS = [
     ]),
     (RO, "ROT", [
         ("R1", "TORQUE EQ", "TORQUE", solver_torque_eq,
-         ["EQUIL TORQUES", "BALANCE CW CCW"],
+         ["ROT EQUIL:", "CLOCKWISE TAU", "BALANCES CCW"],
          ["F1D1=F2D2"],
          ["PICK PIVOT", "SET CW=CCW"],
          ["USE PERP DIST", "SIGN TORQUES"]),
@@ -650,7 +703,7 @@ TOPICS = [
     ]),
     (SH, "SHM", [
         ("S1", "COUNTS SHM", "SHM?", solve_placeholder,
-         ["RESTORING F", "PROP TO X", "TOWARD EQ"],
+         ["SHM NEEDS", "RESTORING F", "TOWARD EQ"],
          ["F=-KX", "A=-W^2X"],
          ["CHECK FORCE", "LINEAR IN X", "OPP SIGN"],
          ["NOT ALL OSC", "IS SHM"]),
@@ -738,6 +791,9 @@ def reserve_subtype_labels():
         for lab, *_ in items:
             if lab not in USED:
                 use(lab)
+    for lab, *_ in DEFINITIONS:
+        if lab not in USED:
+            use(lab)
 
 def build():
     reserve_subtype_labels()
@@ -754,7 +810,7 @@ def build():
         f'Menu("PHYTREE","KINEMATICS",{KI},"FORCES/DYN",{DY},"ENERGY/WORK",{EN},"MOMENTUM",{MO},"ROTATION",{RO},"MORE",{M2},"EXIT",{EX})',
         f"Lbl {M2}",
         "ClrHome",
-        f'Menu("PHYTREE 2","SHM/WAVES",{SH},"FLUIDS",{FL},"GRAPHS/LABS",{GR},"QUICK PICK",{QP},"BACK",{H},"EXIT",{EX})',
+        f'Menu("PHYTREE 2","SHM/WAVES",{SH},"FLUIDS",{FL},"GRAPHS/LABS",{GR},"QUICK PICK",{QP},"DEFINITIONS",{Z},"BACK",{H},"EXIT",{EX})',
     ]
 
     for topic_label, topic_title, items in TOPICS:
@@ -777,7 +833,15 @@ def build():
         f'Menu("QUICK PICK","STICK VF",M1,"KE CONS?",E2,"ROT AXIS",R4,"FNET ZERO?",K5,"GRAPH SHAPE",S5,"MORE",{Q2},"BACK",{H})',
         f"Lbl {Q2}", "ClrHome",
         f'Menu("QUICK 2","BOUNCE",M5,"ORBIT",R8,"SPRING T",S4,"PIPE FLUID",F4,"BACK",{QP},"HOME",{H})',
+        f"Lbl {Z}", "ClrHome",
+        f'Menu("DEFINITIONS","EQUIL",Z1,"SHM",Z2,"CONSERVED",Z3,"SYSTEMS",Z4,"GRAPHS",Z5,"MORE",{Z0},"BACK",{M2})',
+        f"Lbl {Z0}", "ClrHome",
+        f'Menu("DEFIN 2","IMPULSE",Z6,"TORQUE",Z7,"FRQ WORDS",Z8,"BACK",{Z},"HOME",{H},"EXIT",{EX})',
     ]
+
+    for lab, long_title, short_title, text_pages in DEFINITIONS:
+        back = Z0 if lab in {"Z6", "Z7", "Z8"} else Z
+        add_text(lines, lab, short_title, text_pages, back)
 
     for _, _, items in TOPICS:
         for lab, long_title, short_title, solver, help_lines, eqn_lines, steps_lines, traps_lines in items:

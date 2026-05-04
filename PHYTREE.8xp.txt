@@ -9,7 +9,7 @@ ClrHome
 Menu("PHYTREE","KINEMATICS",KI,"FORCES/DYN",DY,"ENERGY/WORK",EN,"MOMENTUM",MO,"ROTATION",RO,"MORE",M2,"EXIT",EX)
 Lbl M2
 ClrHome
-Menu("PHYTREE 2","SHM/WAVES",SH,"FLUIDS",FL,"GRAPHS/LABS",GR,"QUICK PICK",QP,"BACK",H,"EXIT",EX)
+Menu("PHYTREE 2","SHM/WAVES",SH,"FLUIDS",FL,"GRAPHS/LABS",GR,"QUICK PICK",QP,"DEFINITIONS",Z,"BACK",H,"EXIT",EX)
 Lbl KI
 ClrHome
 Menu("KIN","AVG A",K1,"T^2",K2,"AIR TIME",K3,"KE UP",K4,"TOP PATH",K5,"BACK",H)
@@ -43,14 +43,226 @@ Menu("QUICK PICK","STICK VF",M1,"KE CONS?",E2,"ROT AXIS",R4,"FNET ZERO?",K5,"GRA
 Lbl Q2
 ClrHome
 Menu("QUICK 2","BOUNCE",M5,"ORBIT",R8,"SPRING T",S4,"PIPE FLUID",F4,"BACK",QP,"HOME",H)
+Lbl Z
+ClrHome
+Menu("DEFINITIONS","EQUIL",Z1,"SHM",Z2,"CONSERVED",Z3,"SYSTEMS",Z4,"GRAPHS",Z5,"MORE",Z0,"BACK",M2)
+Lbl Z0
+ClrHome
+Menu("DEFIN 2","IMPULSE",Z6,"TORQUE",Z7,"FRQ WORDS",Z8,"BACK",Z,"HOME",H,"EXIT",EX)
+Lbl Z1
+ClrHome
+Disp "EQUIL"
+Disp "EQUILIBRIUM"
+Disp "MEANS A=0"
+Disp "FNET=0"
+Pause
+ClrHome
+Disp "EQUIL"
+Disp "STATIC: V=0"
+Disp "DYNAMIC: V CONST"
+Disp "BOTH A=0"
+Pause
+ClrHome
+Disp "EQUIL"
+Disp "ROT EQ TOO:"
+Disp "TAU NET=0"
+Disp "NO ANG ACC"
+Pause
+ClrHome
+Disp "EQUIL"
+Disp "TRAP:"
+Disp "V=0 ALONE"
+Disp "NOT ENOUGH"
+Pause
+Menu("NEXT","BACK",Z,"HOME",H,"EXIT",EX)
+Lbl Z2
+ClrHome
+Disp "SHM"
+Disp "SHM REQUIRES"
+Disp "RESTORE FORCE"
+Disp "TOWARD EQ"
+Pause
+ClrHome
+Disp "SHM"
+Disp "FORCE MUST BE"
+Disp "PROPORTIONAL"
+Disp "TO DISPLACE"
+Pause
+ClrHome
+Disp "SHM"
+Disp "F=-KX"
+Disp "A=-W^2X"
+Disp "PERIOD FIXED"
+Pause
+ClrHome
+Disp "SHM"
+Disp "TRAP:"
+Disp "REPEATS NOT"
+Disp "ALWAYS SHM"
+Pause
+Menu("NEXT","BACK",Z,"HOME",H,"EXIT",EX)
+Lbl Z3
+ClrHome
+Disp "CONSERVED"
+Disp "CONSERVED MEANS"
+Disp "TOTAL SAME"
+Disp "FOR SYSTEM"
+Pause
+ClrHome
+Disp "CONSERVED"
+Disp "P CONSERVED IF"
+Disp "NO EXT IMPULSE"
+Pause
+ClrHome
+Disp "CONSERVED"
+Disp "L CONSERVED IF"
+Disp "NO EXT TORQUE"
+Pause
+ClrHome
+Disp "CONSERVED"
+Disp "MECH ENERGY IF"
+Disp "NO NONCONS WORK"
+Pause
+Menu("NEXT","BACK",Z,"HOME",H,"EXIT",EX)
+Lbl Z4
+ClrHome
+Disp "SYSTEM"
+Disp "SYSTEM CHOICE"
+Disp "DECIDES INT/EXT"
+Disp "FORCES"
+Pause
+ClrHome
+Disp "SYSTEM"
+Disp "INTERNAL FORCES"
+Disp "CAN MOVE ENERGY"
+Disp "INSIDE SYSTEM"
+Pause
+ClrHome
+Disp "SYSTEM"
+Disp "EXTERNAL WORK"
+Disp "CHANGES SYSTEM"
+Disp "ENERGY/MOM"
+Pause
+ClrHome
+Disp "SYSTEM"
+Disp "TRAP:"
+Disp "DEFINE SYSTEM"
+Disp "BEFORE FORMULA"
+Pause
+Menu("NEXT","BACK",Z,"HOME",H,"EXIT",EX)
+Lbl Z5
+ClrHome
+Disp "GRAPHS"
+Disp "SLOPE MEANS"
+Disp "Y CHANGE OVER"
+Disp "X CHANGE"
+Pause
+ClrHome
+Disp "GRAPHS"
+Disp "AREA UNDER"
+Disp "GRAPH CAN MEAN"
+Disp "ACCUMULATION"
+Pause
+ClrHome
+Disp "GRAPHS"
+Disp "SHAPE CHECK:"
+Disp "LINEAR VS QUAD"
+Disp "VS INVERSE"
+Pause
+ClrHome
+Disp "GRAPHS"
+Disp "TRAP:"
+Disp "READ AXES"
+Disp "BEFORE EQUATION"
+Pause
+Menu("NEXT","BACK",Z,"HOME",H,"EXIT",EX)
+Lbl Z6
+ClrHome
+Disp "IMPULSE"
+Disp "IMPULSE IS"
+Disp "CHANGE IN MOM"
+Disp "J=DELTA P"
+Pause
+ClrHome
+Disp "IMPULSE"
+Disp "FAVG=J/DT"
+Disp "SAME DT MEANS"
+Disp "MORE J MORE F"
+Pause
+ClrHome
+Disp "IMPULSE"
+Disp "BOUNCE HAS"
+Disp "BIG DELTA P"
+Disp "DIR REVERSES"
+Pause
+ClrHome
+Disp "IMPULSE"
+Disp "WALL TRAP:"
+Disp "ONLY PERP MOM"
+Disp "CHANGES"
+Pause
+Menu("NEXT","BACK",Z0,"HOME",H,"EXIT",EX)
+Lbl Z7
+ClrHome
+Disp "TORQUE"
+Disp "TORQUE CAUSES"
+Disp "ANGULAR ACCEL"
+Disp "TAU=RF SINTH"
+Pause
+ClrHome
+Disp "TORQUE"
+Disp "USE PERP DIST"
+Disp "OR PERP FORCE"
+Disp "NOT BOTH"
+Pause
+ClrHome
+Disp "TORQUE"
+Disp "ABOUT CENTER:"
+Disp "CENTRAL FORCE"
+Disp "GIVES TAU=0"
+Pause
+ClrHome
+Disp "TORQUE"
+Disp "TRAP:"
+Disp "AXIS CHOICE"
+Disp "MATTERS"
+Pause
+Menu("NEXT","BACK",Z0,"HOME",H,"EXIT",EX)
+Lbl Z8
+ClrHome
+Disp "FRQ WORDS"
+Disp "JUSTIFY:"
+Disp "CLAIM PLUS"
+Disp "PHYSICS REASON"
+Pause
+ClrHome
+Disp "FRQ WORDS"
+Disp "DERIVE:"
+Disp "START GENERAL"
+Disp "SHOW ALGEBRA"
+Pause
+ClrHome
+Disp "FRQ WORDS"
+Disp "COMPARE:"
+Disp "SAME/DIFF AND"
+Disp "WHY"
+Pause
+ClrHome
+Disp "FRQ WORDS"
+Disp "GRAPH:"
+Disp "AXES UNITS"
+Disp "SHAPE SLOPE"
+Pause
+Menu("NEXT","BACK",Z0,"HOME",H,"EXIT",EX)
 Lbl K1
 ClrHome
 Menu("AVG ACCEL","HELP",AA,"EQN",AB,"STEPS",AC,"SOLVE",AD,"TRAPS",AE,"BACK",KI)
 Lbl AA
 ClrHome
 Disp "AVG A"
-Disp "CHANGE IN V"
-Disp "OVER TIME"
+Disp "AVERAGE ACCEL"
+Disp "IS CHANGE IN"
+Disp "VELOCITY/TIME"
 Pause
 Menu("NEXT","BACK",K1,"HOME",H,"EXIT",EX)
 Lbl AB
@@ -62,8 +274,8 @@ Menu("NEXT","BACK",K1,"HOME",H,"EXIT",EX)
 Lbl AC
 ClrHome
 Disp "STEPS"
-Disp "FIND VI,VF,T"
-Disp "SUBTRACT V"
+Disp "CHOOSE + DIR"
+Disp "DO VF-VI"
 Disp "DIVIDE BY T"
 Pause
 Menu("NEXT","BACK",K1,"HOME",H,"EXIT",EX)
@@ -84,7 +296,7 @@ Menu("NEXT","BACK",K1,"HOME",H,"EXIT",EX)
 Lbl AE
 ClrHome
 Disp "TRAPS"
-Disp "T MUST BE >0"
+Disp "TIME NOT ZERO"
 Disp "SIGNS MATTER"
 Pause
 Menu("NEXT","BACK",K1,"HOME",H,"EXIT",EX)
@@ -95,8 +307,8 @@ Lbl AG
 ClrHome
 Disp "T^2"
 Disp "FROM REST:"
-Disp "D PROP T^2"
-Disp "G CONSTANT"
+Disp "DISTANCE GROWS"
+Disp "LIKE TIME^2"
 Pause
 Menu("NEXT","BACK",K2,"HOME",H,"EXIT",EX)
 Lbl AH
@@ -140,9 +352,9 @@ Menu("PROJ TIME","HELP",AM,"EQN",AN,"STEPS",AO,"SOLVE",AP,"TRAPS",AQ,"BACK",KI)
 Lbl AM
 ClrHome
 Disp "AIR TIME"
-Disp "LEVEL GROUND"
+Disp "LEVEL GROUND:"
 Disp "VERT MOTION"
-Disp "SETS TIME"
+Disp "SETS AIR TIME"
 Pause
 Menu("NEXT","BACK",K3,"HOME",H,"EXIT",EX)
 Lbl AN
@@ -155,7 +367,7 @@ Lbl AO
 ClrHome
 Disp "STEPS"
 Disp "USE VY0"
-Disp "UP TIME=VY0/G"
+Disp "TIME UP=VY0/G"
 Disp "DOUBLE IT"
 Pause
 Menu("NEXT","BACK",K3,"HOME",H,"EXIT",EX)
@@ -187,8 +399,8 @@ Menu("UP/DOWN KE","HELP",AS,"EQN",AT,"STEPS",AU,"SOLVE",AV,"TRAPS",AW,"BACK",KI)
 Lbl AS
 ClrHome
 Disp "KE UP"
-Disp "ACCEL DOWN"
-Disp "MOVING UP"
+Disp "MOVING UP BUT"
+Disp "ACCEL DOWN:"
 Disp "SPEED DROPS"
 Pause
 Menu("NEXT","BACK",K4,"HOME",H,"EXIT",EX)
@@ -201,9 +413,9 @@ Menu("NEXT","BACK",K4,"HOME",H,"EXIT",EX)
 Lbl AU
 ClrHome
 Disp "STEPS"
-Disp "ASK SPEED"
-Disp "IF SPEED DOWN"
-Disp "KE DOWN"
+Disp "KE USES SPEED"
+Disp "SPEED DOWN"
+Disp "MEANS KE DOWN"
 Pause
 Menu("NEXT","BACK",K4,"HOME",H,"EXIT",EX)
 Lbl AV
@@ -240,9 +452,9 @@ Menu("NEXT","BACK",K5,"HOME",H,"EXIT",EX)
 Lbl AZ
 ClrHome
 Disp "STEPS"
-Disp "CHECK FORCES"
-Disp "IF FNET NOT 0"
-Disp "NO EQUIL"
+Disp "EQUIL NEEDS"
+Disp "FNET=0"
+Disp "HERE FNET DOWN"
 Pause
 Menu("NEXT","BACK",K5,"HOME",H,"EXIT",EX)
 Lbl A0
@@ -254,8 +466,8 @@ Menu("NEXT","BACK",K5,"HOME",H,"EXIT",EX)
 Lbl A1
 ClrHome
 Disp "TRAPS"
+Disp "V=0 NOT ENOUGH"
 Disp "VX CAN EXIST"
-Disp "NOT EQUIL"
 Pause
 Menu("NEXT","BACK",K5,"HOME",H,"EXIT",EX)
 Lbl D1
@@ -264,9 +476,9 @@ Menu("N3 GRAPH","HELP",A2,"EQN",A3,"STEPS",A4,"SOLVE",A5,"TRAPS",A6,"BACK",DY)
 Lbl A2
 ClrHome
 Disp "N3 PAIR"
-Disp "FORCE PAIRS"
-Disp "EQUAL MAG"
-Disp "OPP DIR"
+Disp "N3 PAIRS ACT"
+Disp "ON DIFF OBJECTS"
+Disp "SAME TIME"
 Pause
 Menu("NEXT","BACK",D1,"HOME",H,"EXIT",EX)
 Lbl A3
@@ -302,8 +514,9 @@ Menu("FRIC STOP","HELP",A7,"EQN",A8,"STEPS",A9,"SOLVE",BA,"TRAPS",BB,"BACK",DY)
 Lbl A7
 ClrHome
 Disp "FRIC STOP"
-Disp "FRICTION DOES"
-Disp "WORK TO STOP"
+Disp "KINETIC FRIC"
+Disp "DOES NEG WORK"
+Disp "UNTIL V=0"
 Pause
 Menu("NEXT","BACK",D2,"HOME",H,"EXIT",EX)
 Lbl A8
@@ -315,9 +528,9 @@ Menu("NEXT","BACK",D2,"HOME",H,"EXIT",EX)
 Lbl A9
 ClrHome
 Disp "STEPS"
-Disp "MU MG GIVES A"
-Disp "M CANCELS"
-Disp "USE KIN"
+Disp "F=MU MG"
+Disp "A=MU G"
+Disp "THEN USE KIN"
 Pause
 Menu("NEXT","BACK",D2,"HOME",H,"EXIT",EX)
 Lbl BA
@@ -396,6 +609,7 @@ ClrHome
 Disp "F TO A"
 Disp "NET FORCE"
 Disp "CAUSES ACCEL"
+Disp "IN ITS DIR"
 Pause
 Menu("NEXT","BACK",D4,"HOME",H,"EXIT",EX)
 Lbl BJ
@@ -409,6 +623,7 @@ ClrHome
 Disp "STEPS"
 Disp "ID NET F"
 Disp "DIVIDE BY M"
+Disp "DIR SAME AS F"
 Pause
 Menu("NEXT","BACK",D4,"HOME",H,"EXIT",EX)
 Lbl BL
@@ -519,7 +734,7 @@ Menu("INEL KE","HELP",BY,"EQN",BZ,"STEPS",B0,"SOLVE",B1,"TRAPS",B2,"BACK",EN)
 Lbl BY
 ClrHome
 Disp "INELASTIC"
-Disp "STICK COLLIDE"
+Disp "STICK COLLISION:"
 Disp "P CONSERVED"
 Disp "KE NOT"
 Pause
@@ -534,7 +749,8 @@ Lbl B0
 ClrHome
 Disp "STEPS"
 Disp "USE MOMENTUM"
-Disp "THEN CHECK KE"
+Disp "FOR VF"
+Disp "KE USUALLY LOST"
 Pause
 Menu("NEXT","BACK",E2,"HOME",H,"EXIT",EX)
 Lbl B1
@@ -557,7 +773,8 @@ Lbl B3
 ClrHome
 Disp "SYSTEM"
 Disp "DEFINE SYSTEM"
-Disp "FIRST"
+Disp "BEFORE ENERGY"
+Disp "EQUATIONS"
 Pause
 Menu("NEXT","BACK",E3,"HOME",H,"EXIT",EX)
 Lbl B4
@@ -712,8 +929,9 @@ Menu("EXP COM","HELP",CO,"EQN",CP,"STEPS",CQ,"SOLVE",CR,"TRAPS",CS,"BACK",MO)
 Lbl CO
 ClrHome
 Disp "EXP COM"
-Disp "NO EXT FORCE"
-Disp "COM PATH SAME"
+Disp "EXPLOSION:"
+Disp "INTERNAL FORCES"
+Disp "MOVE PIECES"
 Pause
 Menu("NEXT","BACK",M3,"HOME",H,"EXIT",EX)
 Lbl CP
@@ -726,9 +944,9 @@ Menu("NEXT","BACK",M3,"HOME",H,"EXIT",EX)
 Lbl CQ
 ClrHome
 Disp "STEPS"
-Disp "TRACK COM"
-Disp "PIECES SPREAD"
-Disp "COM LANDS SAME"
+Disp "NO EXT FORCE:"
+Disp "COM MOTION"
+Disp "UNCHANGED"
 Pause
 Menu("NEXT","BACK",M3,"HOME",H,"EXIT",EX)
 Lbl CR
@@ -876,8 +1094,9 @@ Menu("TORQUE EQ","HELP",DA,"EQN",DB,"STEPS",DC,"SOLVE",DD,"TRAPS",DE,"BACK",RO)
 Lbl DA
 ClrHome
 Disp "TORQUE"
-Disp "EQUIL TORQUES"
-Disp "BALANCE CW CCW"
+Disp "ROT EQUIL:"
+Disp "CLOCKWISE TAU"
+Disp "BALANCES CCW"
 Pause
 Menu("NEXT","BACK",R1,"HOME",H,"EXIT",EX)
 Lbl DB
@@ -1291,8 +1510,8 @@ Menu("COUNTS SHM","HELP",E7,"EQN",E8,"STEPS",E9,"SOLVE",FA,"TRAPS",FB,"BACK",SH)
 Lbl E7
 ClrHome
 Disp "SHM?"
+Disp "SHM NEEDS"
 Disp "RESTORING F"
-Disp "PROP TO X"
 Disp "TOWARD EQ"
 Pause
 Menu("NEXT","BACK",S1,"HOME",H,"EXIT",EX)
