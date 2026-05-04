@@ -9,7 +9,7 @@ ClrHome
 Menu("PHYTREE","KINEMATICS",KI,"FORCES/DYN",DY,"ENERGY/WORK",EN,"MOMENTUM",MO,"ROTATION",RO,"MORE",M2,"EXIT",EX)
 Lbl M2
 ClrHome
-Menu("PHYTREE 2","SHM/WAVES",SH,"FLUIDS",FL,"GRAPHS/LABS",GR,"QUICK PICK",QP,"DEFINITIONS",Z,"BACK",H,"EXIT",EX)
+Menu("PHYTREE 2","OSCILLATIONS",SH,"FLUIDS",FL,"GRAPHS/LABS",GR,"QUICK PICK",QP,"DEFINITIONS",Z,"BACK",H,"EXIT",EX)
 Lbl KI
 ClrHome
 Menu("KIN","AVG A",K1,"T^2",K2,"AIR TIME",K3,"KE UP",K4,"TOP PATH",K5,"BACK",H)
@@ -24,13 +24,13 @@ ClrHome
 Menu("MOM","STICK VF",M1,"EXP COM",M3,"BOUNCE F",M4,"WALL IMP",M5,"RAFT COM",M6,"BACK",H)
 Lbl RO
 ClrHome
-Menu("ROTATION","TORQUE EQ",R1,"TAU GRAPH",R3,"I AXES",R4,"ROT ALPHA",R5,"ROT REVS",R6,"MORE",R2,"BACK",H)
+Menu("ROTATION","TORQUE EQ",R1,"I FORMULAS",R3,"I AXES",R4,"ROT ALPHA",R5,"ROT REVS",R6,"MORE",R2,"BACK",H)
 Lbl R2
 ClrHome
-Menu("ROTATION 2","ANG MOM",R7,"ORBIT TAU",R8,"L=MVR",R9,"2BODY L",RA,"BACK",RO,"HOME",H)
+Menu("ROTATION 2","ANG MOM",R7,"ANG DISP",R8,"L=MVR",R9,"2BODY L",RA,"BACK",RO,"HOME",H)
 Lbl SH
 ClrHome
-Menu("SHM","SHM?",S1,"TIME EQM",S2,"SHM ENERGY",S3,"PERIODS",S4,"FC GRAPH",S5,"BACK",H)
+Menu("OSC","SHM?",S1,"TIME EQM",S2,"SHM ENERGY",S3,"PERIODS",S4,"SHM POINTS",S5,"BACK",H)
 Lbl FL
 ClrHome
 Menu("FLUID","DENSITY",F1,"P FORCE",F2,"BUOY",F3,"BERN",F4,"BACK",H)
@@ -39,10 +39,10 @@ ClrHome
 Menu("GRAPHS","SLOPE",G1,"P GRAPH",G2,"SPRING K",G3,"LAB GRAPH",G4,"BACK",H)
 Lbl QP
 ClrHome
-Menu("QUICK PICK","STICK VF",M1,"KE CONS?",E2,"ROT AXIS",R4,"FNET ZERO?",K5,"GRAPH SHAPE",S5,"MORE",Q2,"BACK",H)
+Menu("QUICK PICK","STICK VF",M1,"KE CONS?",E2,"ROT AXIS",R4,"FNET ZERO?",K5,"GRAPH SHAPE",G4,"MORE",Q2,"BACK",H)
 Lbl Q2
 ClrHome
-Menu("QUICK 2","BOUNCE",M5,"ORBIT",R8,"SPRING T",S4,"PIPE FLUID",F4,"BACK",QP,"HOME",H)
+Menu("QUICK 2","BOUNCE",M5,"ANG DISP",R8,"SPRING T",S4,"PIPE FLUID",F4,"BACK",QP,"HOME",H)
 Lbl Z
 ClrHome
 Menu("DEFINITIONS","EQUIL",Z1,"SHM",Z2,"CONSERVED",Z3,"SYSTEMS",Z4,"GRAPHS",Z5,"MORE",Z0,"BACK",M2)
@@ -1151,44 +1151,88 @@ Pause
 Menu("NEXT","BACK",R1,"HOME",H,"EXIT",EX)
 Lbl R3
 ClrHome
-Menu("TAU GRAPH","HELP",DJ,"EQN",DK,"STEPS",DL,"SOLVE",DM,"TRAPS",DN,"BACK",RO)
+Menu("I FORMULAS","HELP",DJ,"EQN",DK,"STEPS",DL,"SOLVE",DM,"TRAPS",DN,"BACK",RO)
 Lbl DJ
 ClrHome
-Disp "TAU GRAPH"
-Disp "ONE TAU CONST"
-Disp "OTHER LINEAR"
+Disp "I FORMULA"
+Disp "ROT INERTIA"
+Disp "DEPENDS ON MASS"
+Disp "AND AXIS"
 Pause
 Menu("NEXT","BACK",R3,"HOME",H,"EXIT",EX)
 Lbl DK
 ClrHome
 Disp "EQN"
-Disp "TAU NET=SUM TAU"
+Disp "HOOP=MR^2"
+Disp "DISK=.5MR^2"
+Disp "SPHERE=.4MR^2"
 Pause
 Menu("NEXT","BACK",R3,"HOME",H,"EXIT",EX)
 Lbl DL
 ClrHome
 Disp "STEPS"
-Disp "ADD SIGNED"
-Disp "GRAPH IS LINEAR"
+Disp "ROD CTR=ML^2/12"
+Disp "ROD END=ML^2/3"
 Pause
 Menu("NEXT","BACK",R3,"HOME",H,"EXIT",EX)
 Lbl DM
+Menu("I OBJECT","HOOP",DO,"DISK",DP,"SPHERE",DQ,"ROD CTR",DR,"ROD END",DS,"BACK",R3)
+Lbl DO
 ClrHome
-Disp "CONCEPT ONLY"
-Disp "USE HELP/STEPS"
+Input "M",A
+Input "R",B
+A*B^2->D
+ClrHome
+Disp "I=",D
+Pause
+Menu("NEXT","BACK",R3,"HOME",H,"EXIT",EX)
+Lbl DP
+ClrHome
+Input "M",A
+Input "R",B
+.5*A*B^2->D
+ClrHome
+Disp "I=",D
+Pause
+Menu("NEXT","BACK",R3,"HOME",H,"EXIT",EX)
+Lbl DQ
+ClrHome
+Input "M",A
+Input "R",B
+.4*A*B^2->D
+ClrHome
+Disp "I=",D
+Pause
+Menu("NEXT","BACK",R3,"HOME",H,"EXIT",EX)
+Lbl DR
+ClrHome
+Input "M",A
+Input "L",B
+A*B^2/12->D
+ClrHome
+Disp "I=",D
+Pause
+Menu("NEXT","BACK",R3,"HOME",H,"EXIT",EX)
+Lbl DS
+ClrHome
+Input "M",A
+Input "L",B
+A*B^2/3->D
+ClrHome
+Disp "I=",D
 Pause
 Menu("NEXT","BACK",R3,"HOME",H,"EXIT",EX)
 Lbl DN
 ClrHome
 Disp "TRAPS"
-Disp "ZERO CROSS"
-Disp "MEANS EQUIL"
+Disp "AXIS MUST MATCH"
+Disp "USE GIVEN TABLE"
 Pause
 Menu("NEXT","BACK",R3,"HOME",H,"EXIT",EX)
 Lbl R4
 ClrHome
-Menu("I AXES","HELP",DO,"EQN",DP,"STEPS",DQ,"SOLVE",DR,"TRAPS",DS,"BACK",RO)
-Lbl DO
+Menu("I AXES","HELP",DT,"EQN",DU,"STEPS",DV,"SOLVE",DW,"TRAPS",DX,"BACK",RO)
+Lbl DT
 ClrHome
 Disp "INERTIA"
 Disp "MASS FARTHER"
@@ -1196,26 +1240,26 @@ Disp "FROM AXIS"
 Disp "MEANS BIG I"
 Pause
 Menu("NEXT","BACK",R4,"HOME",H,"EXIT",EX)
-Lbl DP
+Lbl DU
 ClrHome
 Disp "EQN"
 Disp "I=SUM MR^2"
 Pause
 Menu("NEXT","BACK",R4,"HOME",H,"EXIT",EX)
-Lbl DQ
+Lbl DV
 ClrHome
 Disp "STEPS"
 Disp "COMPARE R^2"
 Disp "FAR MASS WINS"
 Pause
 Menu("NEXT","BACK",R4,"HOME",H,"EXIT",EX)
-Lbl DR
+Lbl DW
 ClrHome
 Disp "CONCEPT ONLY"
 Disp "USE HELP/STEPS"
 Pause
 Menu("NEXT","BACK",R4,"HOME",H,"EXIT",EX)
-Lbl DS
+Lbl DX
 ClrHome
 Disp "TRAPS"
 Disp "MASS SAME?"
@@ -1224,73 +1268,73 @@ Pause
 Menu("NEXT","BACK",R4,"HOME",H,"EXIT",EX)
 Lbl R5
 ClrHome
-Menu("ROT ALPHA","HELP",DT,"EQN",DU,"STEPS",DV,"SOLVE",DW,"TRAPS",DX,"BACK",RO)
-Lbl DT
+Menu("ROT ALPHA","HELP",DZ,"EQN",D0,"STEPS",D6,"SOLVE",D7,"TRAPS",D8,"BACK",RO)
+Lbl DZ
 ClrHome
 Disp "ALPHA"
 Disp "CONST ALPHA"
 Disp "LIKE KINEMATICS"
 Pause
 Menu("NEXT","BACK",R5,"HOME",H,"EXIT",EX)
-Lbl DU
+Lbl D0
 ClrHome
 Disp "EQN"
 Disp "WF=WI+AT"
 Disp "TH=WIT+.5AT^2"
 Pause
 Menu("NEXT","BACK",R5,"HOME",H,"EXIT",EX)
-Lbl DV
+Lbl D6
 ClrHome
 Disp "STEPS"
 Disp "PICK EQN"
 Disp "WITH ONE UNKNOWN"
 Pause
 Menu("NEXT","BACK",R5,"HOME",H,"EXIT",EX)
-Lbl DW
-Menu("ALPHA","WF WI T",DZ,"TH WI T",D0,"WF WI TH",D6,"BACK",R5)
-Lbl DZ
+Lbl D7
+Menu("ALPHA","WF WI T",D9,"TH WI T",EA,"WF WI TH",EB,"BACK",R5)
+Lbl D9
 ClrHome
 Input "WI",A
 Input "WF",B
 Input "T",C
 If C=0
 Then
-Goto D7
+Goto EC
 End
 (B-A)/C->D
 ClrHome
 Disp "ALPHA=",D
 Pause
 Menu("NEXT","BACK",R5,"HOME",H,"EXIT",EX)
-Lbl D0
+Lbl EA
 ClrHome
 Input "THETA",A
 Input "WI",B
 Input "T",C
 If C=0
 Then
-Goto D8
+Goto ED
 End
 2*(A-B*C)/C^2->D
 ClrHome
 Disp "ALPHA=",D
 Pause
 Menu("NEXT","BACK",R5,"HOME",H,"EXIT",EX)
-Lbl D6
+Lbl EB
 ClrHome
 Input "WI",A
 Input "WF",B
 Input "THETA",C
 If C=0
 Then
-Goto D9
+Goto EE
 End
 (B^2-A^2)/(2*C)->D
 ClrHome
 Disp "ALPHA=",D
 Pause
 Menu("NEXT","BACK",R5,"HOME",H,"EXIT",EX)
-Lbl DX
+Lbl D8
 ClrHome
 Disp "TRAPS"
 Disp "RADIANS FOR TH"
@@ -1299,8 +1343,8 @@ Pause
 Menu("NEXT","BACK",R5,"HOME",H,"EXIT",EX)
 Lbl R6
 ClrHome
-Menu("ROT REVS","HELP",EA,"EQN",EB,"STEPS",EC,"SOLVE",ED,"TRAPS",EE,"BACK",RO)
-Lbl EA
+Menu("ROT REVS","HELP",EF,"EQN",EG,"STEPS",EH,"SOLVE",EI,"TRAPS",EJ,"BACK",RO)
+Lbl EF
 ClrHome
 Disp "REVS"
 Disp "CONST ALPHA"
@@ -1308,28 +1352,28 @@ Disp "FIND THETA"
 Disp "THEN REVS"
 Pause
 Menu("NEXT","BACK",R6,"HOME",H,"EXIT",EX)
-Lbl EB
+Lbl EG
 ClrHome
 Disp "EQN"
 Disp "TH=(WF2-WI2)/2A"
 Disp "REV=TH/(2PI)"
 Pause
 Menu("NEXT","BACK",R6,"HOME",H,"EXIT",EX)
-Lbl EC
+Lbl EH
 ClrHome
 Disp "STEPS"
 Disp "SOLVE TH"
 Disp "DIV BY 2PI"
 Pause
 Menu("NEXT","BACK",R6,"HOME",H,"EXIT",EX)
-Lbl ED
+Lbl EI
 ClrHome
 Input "WI",A
 Input "WF",B
 Input "ALPHA",C
 If C=0
 Then
-Goto EF
+Goto EK
 End
 (B^2-A^2)/(2*C)->D
 D/(2*3.14159265)->E
@@ -1338,7 +1382,7 @@ Disp "THETA=",D
 Disp "REV=",E
 Pause
 Menu("NEXT","BACK",R6,"HOME",H,"EXIT",EX)
-Lbl EE
+Lbl EJ
 ClrHome
 Disp "TRAPS"
 Disp "A=0 BAD"
@@ -1347,34 +1391,34 @@ Pause
 Menu("NEXT","BACK",R6,"HOME",H,"EXIT",EX)
 Lbl R7
 ClrHome
-Menu("ANG MOM","HELP",EG,"EQN",EH,"STEPS",EI,"SOLVE",EJ,"TRAPS",EK,"BACK",R2)
-Lbl EG
+Menu("ANG MOM","HELP",EL,"EQN",EM,"STEPS",EO,"SOLVE",EP,"TRAPS",EQ,"BACK",R2)
+Lbl EL
 ClrHome
 Disp "ANG MOM"
 Disp "NO EXT TORQUE"
 Disp "ANG MOM CONS"
 Pause
 Menu("NEXT","BACK",R7,"HOME",H,"EXIT",EX)
-Lbl EH
+Lbl EM
 ClrHome
 Disp "EQN"
 Disp "L=I OMEGA"
 Pause
 Menu("NEXT","BACK",R7,"HOME",H,"EXIT",EX)
-Lbl EI
+Lbl EO
 ClrHome
 Disp "STEPS"
 Disp "SET LI=LF"
 Disp "I UP -> W DOWN"
 Pause
 Menu("NEXT","BACK",R7,"HOME",H,"EXIT",EX)
-Lbl EJ
+Lbl EP
 ClrHome
 Disp "CONCEPT ONLY"
 Disp "USE HELP/STEPS"
 Pause
 Menu("NEXT","BACK",R7,"HOME",H,"EXIT",EX)
-Lbl EK
+Lbl EQ
 ClrHome
 Disp "TRAPS"
 Disp "NEEDS NO EXT TAU"
@@ -1382,66 +1426,107 @@ Pause
 Menu("NEXT","BACK",R7,"HOME",H,"EXIT",EX)
 Lbl R8
 ClrHome
-Menu("ORBIT TAU","HELP",EL,"EQN",EM,"STEPS",EO,"SOLVE",EP,"TRAPS",EQ,"BACK",R2)
-Lbl EL
+Menu("ANG DISP","HELP",ER,"EQN",ES,"STEPS",ET,"SOLVE",EU,"TRAPS",EV,"BACK",R2)
+Lbl ER
 ClrHome
-Disp "ORBIT TAU"
-Disp "GRAVITY TOWARD"
-Disp "CENTER"
+Disp "ANG DISP"
+Disp "ROT DISTANCE"
+Disp "IS ANGULAR"
+Disp "DISPLACEMENT"
 Pause
 Menu("NEXT","BACK",R8,"HOME",H,"EXIT",EX)
-Lbl EM
+Lbl ES
 ClrHome
 Disp "EQN"
-Disp "TAU=R F SIN TH"
-Disp "TH=0"
+Disp "TH=.5(WI+WF)T"
+Disp "OR WF2-WI2"
+Disp "OVER 2ALPHA"
 Pause
 Menu("NEXT","BACK",R8,"HOME",H,"EXIT",EX)
-Lbl EO
+Lbl ET
 ClrHome
 Disp "STEPS"
-Disp "ABOUT CENTER"
-Disp "R PARALLEL F"
-Disp "TAU ZERO"
+Disp "WI=0 EXAMPLE:"
+Disp "WF=50 NEED"
+Disp "A OR TIME"
 Pause
 Menu("NEXT","BACK",R8,"HOME",H,"EXIT",EX)
-Lbl EP
+Lbl EU
+Menu("THETA","WI WF A",EW,"WI WF T",EY,"WI0 WF A",EZ,"BACK",R8)
+Lbl EW
 ClrHome
-Disp "CONCEPT ONLY"
-Disp "USE HELP/STEPS"
+Input "WI",A
+Input "WF",B
+Input "ALPHA",C
+If C=0
+Then
+Goto E0
+End
+(B^2-A^2)/(2*C)->D
+D/(2*3.14159265)->E
+ClrHome
+Disp "THETA=",D
+Disp "REV=",E
 Pause
 Menu("NEXT","BACK",R8,"HOME",H,"EXIT",EX)
-Lbl EQ
+Lbl EY
+ClrHome
+Input "WI",A
+Input "WF",B
+Input "T",C
+.5*(A+B)*C->D
+D/(2*3.14159265)->E
+ClrHome
+Disp "THETA=",D
+Disp "REV=",E
+Pause
+Menu("NEXT","BACK",R8,"HOME",H,"EXIT",EX)
+Lbl EZ
+ClrHome
+Input "WF",B
+Input "ALPHA",C
+If C=0
+Then
+Goto E0
+End
+B^2/(2*C)->D
+D/(2*3.14159265)->E
+ClrHome
+Disp "THETA=",D
+Disp "REV=",E
+Pause
+Menu("NEXT","BACK",R8,"HOME",H,"EXIT",EX)
+Lbl EV
 ClrHome
 Disp "TRAPS"
-Disp "CENTER ONLY"
-Disp "OTHER AXIS?"
+Disp "USE RADIANS"
+Disp "REV=TH/2PI"
 Pause
 Menu("NEXT","BACK",R8,"HOME",H,"EXIT",EX)
 Lbl R9
 ClrHome
-Menu("L=MVR","HELP",ER,"EQN",ES,"STEPS",ET,"SOLVE",EU,"TRAPS",EV,"BACK",R2)
-Lbl ER
+Menu("L=MVR","HELP",E6,"EQN",E7,"STEPS",E8,"SOLVE",E9,"TRAPS",FA,"BACK",R2)
+Lbl E6
 ClrHome
 Disp "L MVR"
 Disp "POINT MASS"
 Disp "USE R PERP"
 Pause
 Menu("NEXT","BACK",R9,"HOME",H,"EXIT",EX)
-Lbl ES
+Lbl E7
 ClrHome
 Disp "EQN"
 Disp "L=M V RPERP"
 Pause
 Menu("NEXT","BACK",R9,"HOME",H,"EXIT",EX)
-Lbl ET
+Lbl E8
 ClrHome
 Disp "STEPS"
 Disp "COMPARE MVR"
 Disp "BIGGER PRODUCT"
 Pause
 Menu("NEXT","BACK",R9,"HOME",H,"EXIT",EX)
-Lbl EU
+Lbl E9
 ClrHome
 Input "M",A
 Input "V",B
@@ -1451,7 +1536,7 @@ ClrHome
 Disp "L=",D
 Pause
 Menu("NEXT","BACK",R9,"HOME",H,"EXIT",EX)
-Lbl EV
+Lbl FA
 ClrHome
 Disp "TRAPS"
 Disp "USE PERP R"
@@ -1460,28 +1545,28 @@ Pause
 Menu("NEXT","BACK",R9,"HOME",H,"EXIT",EX)
 Lbl RA
 ClrHome
-Menu("2BODY L","HELP",EW,"EQN",EY,"STEPS",EZ,"SOLVE",E0,"TRAPS",E6,"BACK",R2)
-Lbl EW
+Menu("2BODY L","HELP",FB,"EQN",FC,"STEPS",FD,"SOLVE",FE,"TRAPS",FF,"BACK",R2)
+Lbl FB
 ClrHome
 Disp "2 BODY L"
 Disp "ADD SIGNED"
 Disp "ANG MOM"
 Pause
 Menu("NEXT","BACK",RA,"HOME",H,"EXIT",EX)
-Lbl EY
+Lbl FC
 ClrHome
 Disp "EQN"
 Disp "LTOT=SUM MVR"
 Pause
 Menu("NEXT","BACK",RA,"HOME",H,"EXIT",EX)
-Lbl EZ
+Lbl FD
 ClrHome
 Disp "STEPS"
 Disp "SET + DIR"
 Disp "SUM EACH BODY"
 Pause
 Menu("NEXT","BACK",RA,"HOME",H,"EXIT",EX)
-Lbl E0
+Lbl FE
 ClrHome
 Disp "SIGN +1/-1"
 Input "M1",A
@@ -1497,7 +1582,7 @@ ClrHome
 Disp "L SUM=",I
 Pause
 Menu("NEXT","BACK",RA,"HOME",H,"EXIT",EX)
-Lbl E6
+Lbl FF
 ClrHome
 Disp "TRAPS"
 Disp "OPP SIGNS"
@@ -1506,8 +1591,8 @@ Pause
 Menu("NEXT","BACK",RA,"HOME",H,"EXIT",EX)
 Lbl S1
 ClrHome
-Menu("COUNTS SHM","HELP",E7,"EQN",E8,"STEPS",E9,"SOLVE",FA,"TRAPS",FB,"BACK",SH)
-Lbl E7
+Menu("COUNTS SHM","HELP",FG,"EQN",FH,"STEPS",FI,"SOLVE",FJ,"TRAPS",FK,"BACK",SH)
+Lbl FG
 ClrHome
 Disp "SHM?"
 Disp "SHM NEEDS"
@@ -1515,14 +1600,14 @@ Disp "RESTORING F"
 Disp "TOWARD EQ"
 Pause
 Menu("NEXT","BACK",S1,"HOME",H,"EXIT",EX)
-Lbl E8
+Lbl FH
 ClrHome
 Disp "EQN"
 Disp "F=-KX"
 Disp "A=-W^2X"
 Pause
 Menu("NEXT","BACK",S1,"HOME",H,"EXIT",EX)
-Lbl E9
+Lbl FI
 ClrHome
 Disp "STEPS"
 Disp "CHECK FORCE"
@@ -1530,13 +1615,13 @@ Disp "LINEAR IN X"
 Disp "OPP SIGN"
 Pause
 Menu("NEXT","BACK",S1,"HOME",H,"EXIT",EX)
-Lbl FA
+Lbl FJ
 ClrHome
 Disp "CONCEPT ONLY"
 Disp "USE HELP/STEPS"
 Pause
 Menu("NEXT","BACK",S1,"HOME",H,"EXIT",EX)
-Lbl FB
+Lbl FK
 ClrHome
 Disp "TRAPS"
 Disp "NOT ALL OSC"
@@ -1545,40 +1630,40 @@ Pause
 Menu("NEXT","BACK",S1,"HOME",H,"EXIT",EX)
 Lbl S2
 ClrHome
-Menu("TIME EQM","HELP",FC,"EQN",FD,"STEPS",FE,"SOLVE",FF,"TRAPS",FG,"BACK",SH)
-Lbl FC
+Menu("TIME EQM","HELP",FM,"EQN",FN,"STEPS",FO,"SOLVE",FP,"TRAPS",FQ,"BACK",SH)
+Lbl FM
 ClrHome
 Disp "TIME EQM"
 Disp "X=ACOS(WT)"
 Disp "START AT MAX"
 Pause
 Menu("NEXT","BACK",S2,"HOME",H,"EXIT",EX)
-Lbl FD
+Lbl FN
 ClrHome
 Disp "EQN"
 Disp "T=PI/(2W)"
 Pause
 Menu("NEXT","BACK",S2,"HOME",H,"EXIT",EX)
-Lbl FE
+Lbl FO
 ClrHome
 Disp "STEPS"
 Disp "FIRST EQM"
 Disp "WHEN COS=0"
 Pause
 Menu("NEXT","BACK",S2,"HOME",H,"EXIT",EX)
-Lbl FF
+Lbl FP
 ClrHome
 Input "OMEGA",A
 If A=0
 Then
-Goto FH
+Goto FR
 End
 3.14159265/(2*A)->B
 ClrHome
 Disp "T EQM=",B
 Pause
 Menu("NEXT","BACK",S2,"HOME",H,"EXIT",EX)
-Lbl FG
+Lbl FQ
 ClrHome
 Disp "TRAPS"
 Disp "USES RAD W"
@@ -1587,8 +1672,8 @@ Pause
 Menu("NEXT","BACK",S2,"HOME",H,"EXIT",EX)
 Lbl S3
 ClrHome
-Menu("SHM ENERGY","HELP",FI,"EQN",FJ,"STEPS",FK,"SOLVE",FM,"TRAPS",FN,"BACK",SH)
-Lbl FI
+Menu("SHM ENERGY","HELP",FS,"EQN",FT,"STEPS",FU,"SOLVE",FV,"TRAPS",FW,"BACK",SH)
+Lbl FS
 ClrHome
 Disp "SHM ENERGY"
 Disp "SAME SPRING"
@@ -1596,26 +1681,26 @@ Disp "SAME AMP"
 Disp "SAME MAX KE"
 Pause
 Menu("NEXT","BACK",S3,"HOME",H,"EXIT",EX)
-Lbl FJ
+Lbl FT
 ClrHome
 Disp "EQN"
 Disp "EMAX=.5KA^2"
 Pause
 Menu("NEXT","BACK",S3,"HOME",H,"EXIT",EX)
-Lbl FK
+Lbl FU
 ClrHome
 Disp "STEPS"
 Disp "ENERGY SAME"
 Disp "LOW M -> HIGH V"
 Pause
 Menu("NEXT","BACK",S3,"HOME",H,"EXIT",EX)
-Lbl FM
+Lbl FV
 ClrHome
 Disp "CONCEPT ONLY"
 Disp "USE HELP/STEPS"
 Pause
 Menu("NEXT","BACK",S3,"HOME",H,"EXIT",EX)
-Lbl FN
+Lbl FW
 ClrHome
 Disp "TRAPS"
 Disp "M AFFECTS V"
@@ -1624,35 +1709,35 @@ Pause
 Menu("NEXT","BACK",S3,"HOME",H,"EXIT",EX)
 Lbl S4
 ClrHome
-Menu("MATCH T","HELP",FO,"EQN",FP,"STEPS",FQ,"SOLVE",FR,"TRAPS",FS,"BACK",SH)
-Lbl FO
+Menu("MATCH T","HELP",FX,"EQN",FY,"STEPS",FZ,"SOLVE",F0,"TRAPS",F5,"BACK",SH)
+Lbl FX
 ClrHome
 Disp "PERIODS"
 Disp "PENDULUM"
 Disp "SPRING MASS"
 Pause
 Menu("NEXT","BACK",S4,"HOME",H,"EXIT",EX)
-Lbl FP
+Lbl FY
 ClrHome
 Disp "EQN"
 Disp "TP=2PI(L/G)^.5"
 Disp "TS=2PI(M/K)^.5"
 Pause
 Menu("NEXT","BACK",S4,"HOME",H,"EXIT",EX)
-Lbl FQ
+Lbl FZ
 ClrHome
 Disp "STEPS"
 Disp "MATCH T^2"
 Disp "COMPARE RATIOS"
 Pause
 Menu("NEXT","BACK",S4,"HOME",H,"EXIT",EX)
-Lbl FR
+Lbl F0
 ClrHome
 Disp "CONCEPT ONLY"
 Disp "USE HELP/STEPS"
 Pause
 Menu("NEXT","BACK",S4,"HOME",H,"EXIT",EX)
-Lbl FS
+Lbl F5
 ClrHome
 Disp "TRAPS"
 Disp "AMP SMALL ONLY"
@@ -1661,58 +1746,62 @@ Pause
 Menu("NEXT","BACK",S4,"HOME",H,"EXIT",EX)
 Lbl S5
 ClrHome
-Menu("FC VS V","HELP",FT,"EQN",FU,"STEPS",FV,"SOLVE",FW,"TRAPS",FX,"BACK",SH)
-Lbl FT
+Menu("MAX/EQM","HELP",F6,"EQN",F7,"STEPS",F8,"SOLVE",F9,"TRAPS",GA,"BACK",SH)
+Lbl F6
 ClrHome
-Disp "FC GRAPH"
-Disp "CIRC FORCE"
-Disp "DEPENDS ON V^2"
+Disp "SHM POINTS"
+Disp "AT EQM:"
+Disp "SPEED MAX"
+Disp "ACCEL ZERO"
 Pause
 Menu("NEXT","BACK",S5,"HOME",H,"EXIT",EX)
-Lbl FU
+Lbl F7
 ClrHome
 Disp "EQN"
-Disp "FC=MV^2/R"
+Disp "AT X=A:"
+Disp "SPEED ZERO"
+Disp "ACCEL MAX"
 Pause
 Menu("NEXT","BACK",S5,"HOME",H,"EXIT",EX)
-Lbl FV
+Lbl F8
 ClrHome
 Disp "STEPS"
-Disp "GRAPH VS V"
-Disp "IS PARABOLA"
+Disp "USE ENERGY:"
+Disp "K MAX AT EQM"
+Disp "U MAX AT ENDS"
 Pause
 Menu("NEXT","BACK",S5,"HOME",H,"EXIT",EX)
-Lbl FW
+Lbl F9
 ClrHome
 Disp "CONCEPT ONLY"
 Disp "USE HELP/STEPS"
 Pause
 Menu("NEXT","BACK",S5,"HOME",H,"EXIT",EX)
-Lbl FX
+Lbl GA
 ClrHome
 Disp "TRAPS"
-Disp "NOT LINEAR"
-Disp "V DOUBLES FC 4X"
+Disp "FORCE ZERO"
+Disp "ONLY AT EQM"
 Pause
 Menu("NEXT","BACK",S5,"HOME",H,"EXIT",EX)
 Lbl F1
 ClrHome
-Menu("DENS W/V","HELP",FY,"EQN",FZ,"STEPS",F0,"SOLVE",F5,"TRAPS",F6,"BACK",FL)
-Lbl FY
+Menu("DENS W/V","HELP",GB,"EQN",GC,"STEPS",GD,"SOLVE",GE,"TRAPS",GF,"BACK",FL)
+Lbl GB
 ClrHome
 Disp "DENSITY"
 Disp "LIQ WEIGHT"
 Disp "FROM FULL-EMPTY"
 Pause
 Menu("NEXT","BACK",F1,"HOME",H,"EXIT",EX)
-Lbl FZ
+Lbl GC
 ClrHome
 Disp "EQN"
 Disp "RHO=M/V"
 Disp "M=W/G"
 Pause
 Menu("NEXT","BACK",F1,"HOME",H,"EXIT",EX)
-Lbl F0
+Lbl GD
 ClrHome
 Disp "STEPS"
 Disp "SUB WEIGHTS"
@@ -1720,7 +1809,7 @@ Disp "DIV G"
 Disp "DIV VOL"
 Pause
 Menu("NEXT","BACK",F1,"HOME",H,"EXIT",EX)
-Lbl F5
+Lbl GE
 ClrHome
 Input "W EMPTY",A
 Input "W FULL",B
@@ -1728,7 +1817,7 @@ Input "VOL",C
 Input "G",D
 If C*D=0
 Then
-Goto F7
+Goto GG
 End
 (B-A)/D->E
 E/C->F
@@ -1737,7 +1826,7 @@ Disp "MASS=",E
 Disp "RHO=",F
 Pause
 Menu("NEXT","BACK",F1,"HOME",H,"EXIT",EX)
-Lbl F6
+Lbl GF
 ClrHome
 Disp "TRAPS"
 Disp "USE LIQ ONLY"
@@ -1746,28 +1835,28 @@ Pause
 Menu("NEXT","BACK",F1,"HOME",H,"EXIT",EX)
 Lbl F2
 ClrHome
-Menu("PRESS F","HELP",F8,"EQN",F9,"STEPS",GA,"SOLVE",GB,"TRAPS",GC,"BACK",FL)
-Lbl F8
+Menu("PRESS F","HELP",GH,"EQN",GI,"STEPS",GJ,"SOLVE",GK,"TRAPS",GL,"BACK",FL)
+Lbl GH
 ClrHome
 Disp "P FORCE"
 Disp "GAUGE PRESS"
 Disp "AT DEPTH H"
 Pause
 Menu("NEXT","BACK",F2,"HOME",H,"EXIT",EX)
-Lbl F9
+Lbl GI
 ClrHome
 Disp "EQN"
 Disp "F=RHO G H A"
 Pause
 Menu("NEXT","BACK",F2,"HOME",H,"EXIT",EX)
-Lbl GA
+Lbl GJ
 ClrHome
 Disp "STEPS"
 Disp "FIND P"
 Disp "MULT BY AREA"
 Pause
 Menu("NEXT","BACK",F2,"HOME",H,"EXIT",EX)
-Lbl GB
+Lbl GK
 ClrHome
 Input "RHO",A
 Input "G",B
@@ -1779,7 +1868,7 @@ Disp "F=",E
 Disp "NO ATM P"
 Pause
 Menu("NEXT","BACK",F2,"HOME",H,"EXIT",EX)
-Lbl GC
+Lbl GL
 ClrHome
 Disp "TRAPS"
 Disp "ATM IGNORED"
@@ -1788,35 +1877,35 @@ Pause
 Menu("NEXT","BACK",F2,"HOME",H,"EXIT",EX)
 Lbl F3
 ClrHome
-Menu("BUOY RATIO","HELP",GD,"EQN",GE,"STEPS",GF,"SOLVE",GG,"TRAPS",GH,"BACK",FL)
-Lbl GD
+Menu("BUOY RATIO","HELP",GM,"EQN",GN,"STEPS",GO,"SOLVE",GP,"TRAPS",GQ,"BACK",FL)
+Lbl GM
 ClrHome
 Disp "BUOY"
 Disp "FLOATING:"
 Disp "FB=WEIGHT"
 Pause
 Menu("NEXT","BACK",F3,"HOME",H,"EXIT",EX)
-Lbl GE
+Lbl GN
 ClrHome
 Disp "EQN"
 Disp "RHOBJ/RHOFL"
 Disp "EQUALS SUB FRAC"
 Pause
 Menu("NEXT","BACK",F3,"HOME",H,"EXIT",EX)
-Lbl GF
+Lbl GO
 ClrHome
 Disp "STEPS"
 Disp "USE SUB VOL"
 Disp "COMPARE DENSITY"
 Pause
 Menu("NEXT","BACK",F3,"HOME",H,"EXIT",EX)
-Lbl GG
+Lbl GP
 ClrHome
 Disp "CONCEPT ONLY"
 Disp "USE HELP/STEPS"
 Pause
 Menu("NEXT","BACK",F3,"HOME",H,"EXIT",EX)
-Lbl GH
+Lbl GQ
 ClrHome
 Disp "TRAPS"
 Disp "MORE DENSE"
@@ -1825,35 +1914,35 @@ Pause
 Menu("NEXT","BACK",F3,"HOME",H,"EXIT",EX)
 Lbl F4
 ClrHome
-Menu("CONT/BERN","HELP",GI,"EQN",GJ,"STEPS",GK,"SOLVE",GL,"TRAPS",GM,"BACK",FL)
-Lbl GI
+Menu("CONT/BERN","HELP",GS,"EQN",GT,"STEPS",GU,"SOLVE",GV,"TRAPS",GW,"BACK",FL)
+Lbl GS
 ClrHome
 Disp "BERN"
 Disp "FLOW SPEED"
 Disp "AREA AND PRESS"
 Pause
 Menu("NEXT","BACK",F4,"HOME",H,"EXIT",EX)
-Lbl GJ
+Lbl GT
 ClrHome
 Disp "EQN"
 Disp "A1V1=A2V2"
 Disp "P+.5RV^2+RGH"
 Pause
 Menu("NEXT","BACK",F4,"HOME",H,"EXIT",EX)
-Lbl GK
+Lbl GU
 ClrHome
 Disp "STEPS"
 Disp "NARROW -> FAST"
 Disp "BERN FOR PRESS"
 Pause
 Menu("NEXT","BACK",F4,"HOME",H,"EXIT",EX)
-Lbl GL
+Lbl GV
 ClrHome
 Disp "CONCEPT ONLY"
 Disp "USE HELP/STEPS"
 Pause
 Menu("NEXT","BACK",F4,"HOME",H,"EXIT",EX)
-Lbl GM
+Lbl GW
 ClrHome
 Disp "TRAPS"
 Disp "SAME STREAM"
@@ -1862,28 +1951,28 @@ Pause
 Menu("NEXT","BACK",F4,"HOME",H,"EXIT",EX)
 Lbl G1
 ClrHome
-Menu("SLOPE V","HELP",GN,"EQN",GO,"STEPS",GP,"SOLVE",GQ,"TRAPS",GS,"BACK",GR)
-Lbl GN
+Menu("SLOPE V","HELP",GX,"EQN",GY,"STEPS",GZ,"SOLVE",G0,"TRAPS",G5,"BACK",GR)
+Lbl GX
 ClrHome
 Disp "SLOPE"
 Disp "X-T GRAPH"
 Disp "SLOPE IS V"
 Pause
 Menu("NEXT","BACK",G1,"HOME",H,"EXIT",EX)
-Lbl GO
+Lbl GY
 ClrHome
 Disp "EQN"
 Disp "V=DX/DT"
 Pause
 Menu("NEXT","BACK",G1,"HOME",H,"EXIT",EX)
-Lbl GP
+Lbl GZ
 ClrHome
 Disp "STEPS"
 Disp "PICK TWO PTS"
 Disp "RISE/RUN"
 Pause
 Menu("NEXT","BACK",G1,"HOME",H,"EXIT",EX)
-Lbl GQ
+Lbl G0
 ClrHome
 Input "X1",A
 Input "T1",B
@@ -1891,14 +1980,14 @@ Input "X2",C
 Input "T2",D
 If D-B=0
 Then
-Goto GT
+Goto G6
 End
 (C-A)/(D-B)->E
 ClrHome
 Disp "SLOPE/V=",E
 Pause
 Menu("NEXT","BACK",G1,"HOME",H,"EXIT",EX)
-Lbl GS
+Lbl G5
 ClrHome
 Disp "TRAPS"
 Disp "CURVE: TANGENT"
@@ -1907,8 +1996,8 @@ Pause
 Menu("NEXT","BACK",G1,"HOME",H,"EXIT",EX)
 Lbl G2
 ClrHome
-Menu("MASS V P","HELP",GU,"EQN",GV,"STEPS",GW,"SOLVE",GX,"TRAPS",GY,"BACK",GR)
-Lbl GU
+Menu("MASS V P","HELP",G7,"EQN",G8,"STEPS",G9,"SOLVE",HA,"TRAPS",HB,"BACK",GR)
+Lbl G7
 ClrHome
 Disp "P GRAPH"
 Disp "READ MASS"
@@ -1916,20 +2005,20 @@ Disp "READ VELOCITY"
 Disp "THEN P"
 Pause
 Menu("NEXT","BACK",G2,"HOME",H,"EXIT",EX)
-Lbl GV
+Lbl G8
 ClrHome
 Disp "EQN"
 Disp "P=MV"
 Pause
 Menu("NEXT","BACK",G2,"HOME",H,"EXIT",EX)
-Lbl GW
+Lbl G9
 ClrHome
 Disp "STEPS"
 Disp "GET V SLOPE"
 Disp "MULT BY M"
 Pause
 Menu("NEXT","BACK",G2,"HOME",H,"EXIT",EX)
-Lbl GX
+Lbl HA
 ClrHome
 Input "MASS",A
 Input "VEL",B
@@ -1938,7 +2027,7 @@ ClrHome
 Disp "P=",C
 Pause
 Menu("NEXT","BACK",G2,"HOME",H,"EXIT",EX)
-Lbl GY
+Lbl HB
 ClrHome
 Disp "TRAPS"
 Disp "SIGNS MATTER"
@@ -1947,28 +2036,28 @@ Pause
 Menu("NEXT","BACK",G2,"HOME",H,"EXIT",EX)
 Lbl G3
 ClrHome
-Menu("SPRING K","HELP",GZ,"EQN",G0,"STEPS",G5,"SOLVE",G6,"TRAPS",G7,"BACK",GR)
-Lbl GZ
+Menu("SPRING K","HELP",HC,"EQN",HD,"STEPS",HE,"SOLVE",HF,"TRAPS",HG,"BACK",GR)
+Lbl HC
 ClrHome
 Disp "SPRING K"
 Disp "F VS EXT"
 Disp "SLOPE IS K"
 Pause
 Menu("NEXT","BACK",G3,"HOME",H,"EXIT",EX)
-Lbl G0
+Lbl HD
 ClrHome
 Disp "EQN"
 Disp "F=KX"
 Pause
 Menu("NEXT","BACK",G3,"HOME",H,"EXIT",EX)
-Lbl G5
+Lbl HE
 ClrHome
 Disp "STEPS"
 Disp "USE EXTENSION"
 Disp "SLOPE DELF/DELX"
 Pause
 Menu("NEXT","BACK",G3,"HOME",H,"EXIT",EX)
-Lbl G6
+Lbl HF
 ClrHome
 Input "F1",A
 Input "X1",B
@@ -1976,14 +2065,14 @@ Input "F2",C
 Input "X2",D
 If D-B=0
 Then
-Goto G8
+Goto HH
 End
 (C-A)/(D-B)->E
 ClrHome
 Disp "K=",E
 Pause
 Menu("NEXT","BACK",G3,"HOME",H,"EXIT",EX)
-Lbl G7
+Lbl HG
 ClrHome
 Disp "TRAPS"
 Disp "TOTAL LENGTH?"
@@ -1992,22 +2081,22 @@ Pause
 Menu("NEXT","BACK",G3,"HOME",H,"EXIT",EX)
 Lbl G4
 ClrHome
-Menu("EXP GRAPH","HELP",G9,"EQN",HA,"STEPS",HB,"SOLVE",HC,"TRAPS",HD,"BACK",GR)
-Lbl G9
+Menu("EXP GRAPH","HELP",HI,"EQN",HJ,"STEPS",HK,"SOLVE",HL,"TRAPS",HM,"BACK",GR)
+Lbl HI
 ClrHome
 Disp "LAB GRAPH"
 Disp "REAL LABS HAVE"
 Disp "FRICTION/LOSS"
 Pause
 Menu("NEXT","BACK",G4,"HOME",H,"EXIT",EX)
-Lbl HA
+Lbl HJ
 ClrHome
 Disp "EQN"
 Disp "SLOPE/INTERCEPT"
 Disp "TELL MODEL"
 Pause
 Menu("NEXT","BACK",G4,"HOME",H,"EXIT",EX)
-Lbl HB
+Lbl HK
 ClrHome
 Disp "STEPS"
 Disp "CHECK AXES"
@@ -2015,13 +2104,13 @@ Disp "CHECK UNITS"
 Disp "CHECK INTERCEPT"
 Pause
 Menu("NEXT","BACK",G4,"HOME",H,"EXIT",EX)
-Lbl HC
+Lbl HL
 ClrHome
 Disp "CONCEPT ONLY"
 Disp "USE HELP/STEPS"
 Pause
 Menu("NEXT","BACK",G4,"HOME",H,"EXIT",EX)
-Lbl HD
+Lbl HM
 ClrHome
 Disp "TRAPS"
 Disp "NONIDEAL SHIFT"
@@ -2068,42 +2157,47 @@ ClrHome
 Disp "F2 CANT BE 0"
 Pause
 Menu("NEXT","BACK",R1,"HOME",H,"EXIT",EX)
-Lbl D7
+Lbl EC
 ClrHome
 Disp "T CANT BE 0"
 Pause
 Menu("NEXT","BACK",R5,"HOME",H,"EXIT",EX)
-Lbl D8
+Lbl ED
 ClrHome
 Disp "T CANT BE 0"
 Pause
 Menu("NEXT","BACK",R5,"HOME",H,"EXIT",EX)
-Lbl D9
+Lbl EE
 ClrHome
 Disp "TH CANT BE 0"
 Pause
 Menu("NEXT","BACK",R5,"HOME",H,"EXIT",EX)
-Lbl EF
+Lbl EK
 ClrHome
 Disp "A CANT BE 0"
 Pause
 Menu("NEXT","BACK",R6,"HOME",H,"EXIT",EX)
-Lbl FH
+Lbl E0
+ClrHome
+Disp "A CANT BE 0"
+Pause
+Menu("NEXT","BACK",R8,"HOME",H,"EXIT",EX)
+Lbl FR
 ClrHome
 Disp "W CANT BE 0"
 Pause
 Menu("NEXT","BACK",S2,"HOME",H,"EXIT",EX)
-Lbl F7
+Lbl GG
 ClrHome
 Disp "V OR G ZERO"
 Pause
 Menu("NEXT","BACK",F1,"HOME",H,"EXIT",EX)
-Lbl GT
+Lbl G6
 ClrHome
 Disp "DT CANT BE 0"
 Pause
 Menu("NEXT","BACK",G1,"HOME",H,"EXIT",EX)
-Lbl G8
+Lbl HH
 ClrHome
 Disp "DX CANT BE 0"
 Pause

@@ -365,6 +365,117 @@ def solver_revs(lines, back):
     ]
     add_solver_result_nav(lines, back)
 
+def solver_ang_disp(lines, back):
+    la = alloc()
+    lt = alloc()
+    l0 = alloc()
+    ba = bad_label("A CANT BE 0", back)
+    lines += [
+        f'Menu("THETA","WI WF A",{la},"WI WF T",{lt},"WI0 WF A",{l0},"BACK",{back})',
+        f'Lbl {la}',
+        'ClrHome',
+        'Input "WI",A',
+        'Input "WF",B',
+        'Input "ALPHA",C',
+        'If C=0',
+        'Then',
+        f'Goto {ba}',
+        'End',
+        '(B^2-A^2)/(2*C)->D',
+        'D/(2*3.14159265)->E',
+        'ClrHome',
+        'Disp "THETA=",D',
+        'Disp "REV=",E',
+    ]
+    add_solver_result_nav(lines, back)
+    lines += [
+        f'Lbl {lt}',
+        'ClrHome',
+        'Input "WI",A',
+        'Input "WF",B',
+        'Input "T",C',
+        '.5*(A+B)*C->D',
+        'D/(2*3.14159265)->E',
+        'ClrHome',
+        'Disp "THETA=",D',
+        'Disp "REV=",E',
+    ]
+    add_solver_result_nav(lines, back)
+    lines += [
+        f'Lbl {l0}',
+        'ClrHome',
+        'Input "WF",B',
+        'Input "ALPHA",C',
+        'If C=0',
+        'Then',
+        f'Goto {ba}',
+        'End',
+        'B^2/(2*C)->D',
+        'D/(2*3.14159265)->E',
+        'ClrHome',
+        'Disp "THETA=",D',
+        'Disp "REV=",E',
+    ]
+    add_solver_result_nav(lines, back)
+
+def solver_inertia(lines, back):
+    lh = alloc()
+    ld = alloc()
+    ls = alloc()
+    lc = alloc()
+    le = alloc()
+    lines += [
+        f'Menu("I OBJECT","HOOP",{lh},"DISK",{ld},"SPHERE",{ls},"ROD CTR",{lc},"ROD END",{le},"BACK",{back})',
+        f'Lbl {lh}',
+        'ClrHome',
+        'Input "M",A',
+        'Input "R",B',
+        'A*B^2->D',
+        'ClrHome',
+        'Disp "I=",D',
+    ]
+    add_solver_result_nav(lines, back)
+    lines += [
+        f'Lbl {ld}',
+        'ClrHome',
+        'Input "M",A',
+        'Input "R",B',
+        '.5*A*B^2->D',
+        'ClrHome',
+        'Disp "I=",D',
+    ]
+    add_solver_result_nav(lines, back)
+    lines += [
+        f'Lbl {ls}',
+        'ClrHome',
+        'Input "M",A',
+        'Input "R",B',
+        '.4*A*B^2->D',
+        'ClrHome',
+        'Disp "I=",D',
+    ]
+    add_solver_result_nav(lines, back)
+    lines += [
+        f'Lbl {lc}',
+        'ClrHome',
+        'Input "M",A',
+        'Input "L",B',
+        'A*B^2/12->D',
+        'ClrHome',
+        'Disp "I=",D',
+    ]
+    add_solver_result_nav(lines, back)
+    lines += [
+        f'Lbl {le}',
+        'ClrHome',
+        'Input "M",A',
+        'Input "L",B',
+        'A*B^2/3->D',
+        'ClrHome',
+        'Disp "I=",D',
+    ]
+    add_solver_result_nav(lines, back)
+
 def solver_lmvr(lines, back):
     lines += [
         'ClrHome',
@@ -660,11 +771,11 @@ TOPICS = [
          ["F1D1=F2D2"],
          ["PICK PIVOT", "SET CW=CCW"],
          ["USE PERP DIST", "SIGN TORQUES"]),
-        ("R3", "TAU GRAPH", "TAU GRAPH", solve_placeholder,
-         ["ONE TAU CONST", "OTHER LINEAR"],
-         ["TAU NET=SUM TAU"],
-         ["ADD SIGNED", "GRAPH IS LINEAR"],
-         ["ZERO CROSS", "MEANS EQUIL"]),
+        ("R3", "I FORMULAS", "I FORMULA", solver_inertia,
+         ["ROT INERTIA", "DEPENDS ON MASS", "AND AXIS"],
+         ["HOOP=MR^2", "DISK=.5MR^2", "SPHERE=.4MR^2"],
+         ["ROD CTR=ML^2/12", "ROD END=ML^2/3"],
+         ["AXIS MUST MATCH", "USE GIVEN TABLE"]),
         ("R4", "I AXES", "INERTIA", solve_placeholder,
          ["MASS FARTHER", "FROM AXIS", "MEANS BIG I"],
          ["I=SUM MR^2"],
@@ -685,11 +796,11 @@ TOPICS = [
          ["L=I OMEGA"],
          ["SET LI=LF", "I UP -> W DOWN"],
          ["NEEDS NO EXT TAU"]),
-        ("R8", "ORBIT TAU", "ORBIT TAU", solve_placeholder,
-         ["GRAVITY TOWARD", "CENTER"],
-         ["TAU=R F SIN TH", "TH=0"],
-         ["ABOUT CENTER", "R PARALLEL F", "TAU ZERO"],
-         ["CENTER ONLY", "OTHER AXIS?"]),
+        ("R8", "ANG DISP", "ANG DISP", solver_ang_disp,
+         ["ROT DISTANCE", "IS ANGULAR", "DISPLACEMENT"],
+         ["TH=.5(WI+WF)T", "OR WF2-WI2", "OVER 2ALPHA"],
+         ["WI=0 EXAMPLE:", "WF=50 NEED", "A OR TIME"],
+         ["USE RADIANS", "REV=TH/2PI"]),
         ("R9", "L=MVR", "L MVR", solver_lmvr,
          ["POINT MASS", "USE R PERP"],
          ["L=M V RPERP"],
@@ -701,7 +812,7 @@ TOPICS = [
          ["SET + DIR", "SUM EACH BODY"],
          ["OPP SIGNS", "CAN CANCEL"]),
     ]),
-    (SH, "SHM", [
+    (SH, "OSC", [
         ("S1", "COUNTS SHM", "SHM?", solve_placeholder,
          ["SHM NEEDS", "RESTORING F", "TOWARD EQ"],
          ["F=-KX", "A=-W^2X"],
@@ -722,11 +833,11 @@ TOPICS = [
          ["TP=2PI(L/G)^.5", "TS=2PI(M/K)^.5"],
          ["MATCH T^2", "COMPARE RATIOS"],
          ["AMP SMALL ONLY", "M NOT IN PEND"]),
-        ("S5", "FC VS V", "FC GRAPH", solve_placeholder,
-         ["CIRC FORCE", "DEPENDS ON V^2"],
-         ["FC=MV^2/R"],
-         ["GRAPH VS V", "IS PARABOLA"],
-         ["NOT LINEAR", "V DOUBLES FC 4X"]),
+        ("S5", "MAX/EQM", "SHM POINTS", solve_placeholder,
+         ["AT EQM:", "SPEED MAX", "ACCEL ZERO"],
+         ["AT X=A:", "SPEED ZERO", "ACCEL MAX"],
+         ["USE ENERGY:", "K MAX AT EQM", "U MAX AT ENDS"],
+         ["FORCE ZERO", "ONLY AT EQM"]),
     ]),
     (FL, "FLUID", [
         ("F1", "DENS W/V", "DENSITY", solver_density,
@@ -779,9 +890,9 @@ QUICK = [
     ("KE CONS?", "E2"),
     ("ROT AXIS", "R4"),
     ("FNET ZERO?", "K5"),
-    ("GRAPH SHAPE", "S5"),
+    ("GRAPH SHAPE", "G4"),
     ("BOUNCE", "M5"),
-    ("ORBIT", "R8"),
+    ("ANG DISP", "R8"),
     ("SPRING T", "S4"),
     ("PIPE FLUID", "F4"),
 ]
@@ -810,7 +921,7 @@ def build():
         f'Menu("PHYTREE","KINEMATICS",{KI},"FORCES/DYN",{DY},"ENERGY/WORK",{EN},"MOMENTUM",{MO},"ROTATION",{RO},"MORE",{M2},"EXIT",{EX})',
         f"Lbl {M2}",
         "ClrHome",
-        f'Menu("PHYTREE 2","SHM/WAVES",{SH},"FLUIDS",{FL},"GRAPHS/LABS",{GR},"QUICK PICK",{QP},"DEFINITIONS",{Z},"BACK",{H},"EXIT",{EX})',
+        f'Menu("PHYTREE 2","OSCILLATIONS",{SH},"FLUIDS",{FL},"GRAPHS/LABS",{GR},"QUICK PICK",{QP},"DEFINITIONS",{Z},"BACK",{H},"EXIT",{EX})',
     ]
 
     for topic_label, topic_title, items in TOPICS:
@@ -818,9 +929,9 @@ def build():
             first = items[:5]
             rest = items[5:]
             lines += [f"Lbl {RO}", "ClrHome",
-                      f'Menu("ROTATION","TORQUE EQ",R1,"TAU GRAPH",R3,"I AXES",R4,"ROT ALPHA",R5,"ROT REVS",R6,"MORE",{R2},"BACK",{H})',
+                      f'Menu("ROTATION","TORQUE EQ",R1,"I FORMULAS",R3,"I AXES",R4,"ROT ALPHA",R5,"ROT REVS",R6,"MORE",{R2},"BACK",{H})',
                       f"Lbl {R2}", "ClrHome",
-                      f'Menu("ROTATION 2","ANG MOM",R7,"ORBIT TAU",R8,"L=MVR",R9,"2BODY L",RA,"BACK",{RO},"HOME",{H})']
+                      f'Menu("ROTATION 2","ANG MOM",R7,"ANG DISP",R8,"L=MVR",R9,"2BODY L",RA,"BACK",{RO},"HOME",{H})']
         else:
             pairs = []
             for lab, _, menu, *_ in items:
@@ -830,9 +941,9 @@ def build():
 
     lines += [
         f"Lbl {QP}", "ClrHome",
-        f'Menu("QUICK PICK","STICK VF",M1,"KE CONS?",E2,"ROT AXIS",R4,"FNET ZERO?",K5,"GRAPH SHAPE",S5,"MORE",{Q2},"BACK",{H})',
+        f'Menu("QUICK PICK","STICK VF",M1,"KE CONS?",E2,"ROT AXIS",R4,"FNET ZERO?",K5,"GRAPH SHAPE",G4,"MORE",{Q2},"BACK",{H})',
         f"Lbl {Q2}", "ClrHome",
-        f'Menu("QUICK 2","BOUNCE",M5,"ORBIT",R8,"SPRING T",S4,"PIPE FLUID",F4,"BACK",{QP},"HOME",{H})',
+        f'Menu("QUICK 2","BOUNCE",M5,"ANG DISP",R8,"SPRING T",S4,"PIPE FLUID",F4,"BACK",{QP},"HOME",{H})',
         f"Lbl {Z}", "ClrHome",
         f'Menu("DEFINITIONS","EQUIL",Z1,"SHM",Z2,"CONSERVED",Z3,"SYSTEMS",Z4,"GRAPHS",Z5,"MORE",{Z0},"BACK",{M2})',
         f"Lbl {Z0}", "ClrHome",
