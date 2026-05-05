@@ -51,7 +51,7 @@ Menu("NEXT","BACK",Q1,"HOME",H,"EXIT",EX)
 Lbl AB
 ClrHome
 Disp "Q1 RULES"
-Disp "SYSTEM: BOTH"
+Disp "SYSTEM BOTH"
 Disp "OBJECTS TOGETHER"
 Disp "FOR COLLISION"
 Pause
@@ -69,7 +69,7 @@ Disp "CONSISTENT"
 Pause
 ClrHome
 Disp "Q1 RULES"
-Disp "INELASTIC: VF"
+Disp "INELASTIC VF"
 Disp "SAME FOR BOTH"
 Disp "AFTER HIT"
 Pause
@@ -230,7 +230,8 @@ Menu("NEXT","BACK",AE,"HOME",H,"EXIT",EX)
 Lbl AF
 ClrHome
 Disp "Q1 TIPS"
-Disp "DROPPED BLOCK MAY"
+Disp "DROPPED BLOCK MA"
+Disp "Y"
 Disp "HAVE VY BUT X"
 Disp "CAN BE ZERO"
 Pause
@@ -248,19 +249,19 @@ Disp "THAN SPEED"
 Pause
 ClrHome
 Disp "Q1 TIPS"
-Disp "CHECK LIMITS:"
+Disp "CHECK LIMITS"
 Disp "M2 BIG -> VF"
 Disp "SHOULD SHRINK"
 Pause
 ClrHome
 Disp "Q1 TIPS"
-Disp "UNITS CHECK:"
+Disp "UNITS CHECK"
 Disp "P IN KG M/S"
 Disp "E IN J"
 Pause
 ClrHome
 Disp "Q1 TIPS"
-Disp "COMMON TRAP:"
+Disp "COMMON TRAP"
 Disp "MOM CONS YES"
 Disp "KE CONS NO"
 Pause
@@ -359,12 +360,12 @@ Disp "K=.5MV^2"
 Pause
 ClrHome
 Disp "Q2 EQS"
-Disp "MECH:I + WNC="
-Disp "MECH:F"
+Disp "MECHI + WNC="
+Disp "MECHF"
 Pause
 ClrHome
 Disp "Q2 EQS"
-Disp "REST TO REST:"
+Disp "REST TO REST"
 Disp "MGH=.5KX^2"
 Pause
 ClrHome
@@ -373,7 +374,8 @@ Disp "H=L SIN(TH)"
 Pause
 ClrHome
 Disp "Q2 EQS"
-Disp "V^2=2(MGH-.5KX^2)/M"
+Disp "V^2=2(MGH-.5KX^2"
+Disp ")/M"
 Pause
 Menu("NEXT","BACK",Q2,"HOME",H,"EXIT",EX)
 Lbl AN
@@ -523,7 +525,7 @@ Disp "THE EQUATION"
 Pause
 ClrHome
 Disp "Q2 TIPS"
-Disp "LABEL UNITS:"
+Disp "LABEL UNITS"
 Disp "K N/M X M"
 Disp "ENERGY J"
 Pause
@@ -584,7 +586,7 @@ Disp "VICE VERSA"
 Pause
 ClrHome
 Disp "Q3 RULES"
-Disp "STATIC EQUIL:"
+Disp "STATIC EQUIL"
 Disp "SUM TAU=0 AND"
 Disp "SUM F=0"
 Pause
@@ -619,7 +621,7 @@ Disp "PIVOT = 0"
 Pause
 ClrHome
 Disp "Q3 EQS"
-Disp "AP 2025 FORM:"
+Disp "AP 2025 FORM"
 Disp "FT=5MG/(6SINTH)"
 Pause
 ClrHome
@@ -642,7 +644,7 @@ Menu("NEXT","BACK",Q3,"HOME",H,"EXIT",EX)
 Lbl A1
 ClrHome
 Disp "Q3 FLOW"
-Disp "DESIGN: LIST"
+Disp "DESIGN LIST"
 Disp "EQUIP + WHAT"
 Disp "YOU MEASURE"
 Pause
@@ -678,7 +680,7 @@ Disp "SOLVE FOR M"
 Pause
 ClrHome
 Disp "Q3 FLOW"
-Disp "DISCUSS ERROR:"
+Disp "DISCUSS ERROR"
 Disp "ANGLE READ"
 Disp "SCALE CALIB"
 Pause
@@ -829,13 +831,14 @@ Disp "SET + UP"
 Pause
 ClrHome
 Disp "Q4 RULES"
-Disp "USE N2L: SUM F"
+Disp "USE N2L SUM F"
 Disp "= M A ALONG"
 Disp "ONE AXIS"
 Pause
 ClrHome
 Disp "Q4 RULES"
-Disp "FOR FULL SUBMERGE"
+Disp "FOR FULL SUBMERG"
+Disp "E"
 Disp "DISPLACED V IS"
 Disp "BLOCK V"
 Pause
@@ -853,7 +856,7 @@ Disp "BETWEEN FLUIDS"
 Pause
 ClrHome
 Disp "Q4 RULES"
-Disp "COMPARE SIGNS:"
+Disp "COMPARE SIGNS"
 Disp "A POS UP WHEN"
 Disp "FB > MG"
 Pause
@@ -925,7 +928,7 @@ Disp "CHANGE RHO"
 Pause
 ClrHome
 Disp "Q4 FLOW"
-Disp "EXPLAIN WORDS:"
+Disp "EXPLAIN WORDS"
 Disp "BIGGER RHO ->"
 Disp "BIGGER FB"
 Pause
@@ -937,7 +940,7 @@ Disp "UPWARD A"
 Pause
 ClrHome
 Disp "Q4 FLOW"
-Disp "CHECK LIMIT:"
+Disp "CHECK LIMIT"
 Disp "RHO=0 GIVES"
 Disp "A=-G"
 Pause
@@ -997,7 +1000,8 @@ Lbl BF
 ClrHome
 Disp "Q4 TIPS"
 Disp "DO NOT USE"
-Disp "PRESSURE EQ ALONE"
+Disp "PRESSURE EQ ALON"
+Disp "E"
 Disp "WITHOUT FB STEP"
 Pause
 ClrHome
@@ -1008,7 +1012,7 @@ Disp "IN COMPARISON"
 Pause
 ClrHome
 Disp "Q4 TIPS"
-Disp "UNITS CHECK:"
+Disp "UNITS CHECK"
 Disp "RHO KG/M^3"
 Disp "FB IN N"
 Pause
@@ -1037,31 +1041,31 @@ Menu("FRQ SKILLS","COMMANDS",BL,"CER",BM,"GRAPHS",BN,"LAB DESIGN",BO,"UNIT CHECK
 Lbl BL
 ClrHome
 Disp "CMD WORDS"
-Disp "DESCRIBE: WHAT"
+Disp "DESCRIBE WHAT"
 Disp "HAPPENS + TREND"
 Disp "NO MATH NEEDED"
 Pause
 ClrHome
 Disp "CMD WORDS"
-Disp "EXPLAIN: WHAT +"
+Disp "EXPLAIN WHAT +"
 Disp "WHY USING LAW"
 Disp "AND CONTEXT"
 Pause
 ClrHome
 Disp "CMD WORDS"
-Disp "JUSTIFY: CLAIM"
+Disp "JUSTIFY CLAIM"
 Disp "EVIDENCE FROM"
 Disp "MODEL OR DATA"
 Pause
 ClrHome
 Disp "CMD WORDS"
-Disp "DERIVE: START"
+Disp "DERIVE START"
 Disp "GENERAL EQN"
 Disp "SHOW ALGEBRA"
 Pause
 ClrHome
 Disp "CMD WORDS"
-Disp "COMPARE: SAME OR"
+Disp "COMPARE SAME OR"
 Disp "DIFF THEN WHY"
 Disp "WITH PHYSICS"
 Pause
@@ -1069,19 +1073,19 @@ Menu("NEXT","BACK",FS,"HOME",H,"EXIT",EX)
 Lbl BM
 ClrHome
 Disp "CER"
-Disp "CLAIM: DIRECT"
+Disp "CLAIM DIRECT"
 Disp "ANSWER TO ASK"
 Disp "IN ONE LINE"
 Pause
 ClrHome
 Disp "CER"
-Disp "EVIDENCE: EQN"
+Disp "EVIDENCE EQN"
 Disp "DATA OR GRAPH"
 Disp "VALUE"
 Pause
 ClrHome
 Disp "CER"
-Disp "REASONING:"
+Disp "REASONING"
 Disp "CONNECT EVIDENCE"
 Disp "TO CLAIM"
 Pause
@@ -1165,7 +1169,7 @@ Menu("NEXT","BACK",FS,"HOME",H,"EXIT",EX)
 Lbl BP
 ClrHome
 Disp "UNITS"
-Disp "MKS DEFAULT:"
+Disp "MKS DEFAULT"
 Disp "M KG S N J"
 Disp "PA"
 Pause
@@ -1197,7 +1201,8 @@ Disp "IS REQUIRED"
 Pause
 ClrHome
 Disp "TRAPS"
-Disp "ASSUMING CONS LAW"
+Disp "ASSUMING CONS LA"
+Disp "W"
 Disp "WITHOUT SYSTEM"
 Disp "AND CONDITIONS"
 Pause
@@ -1253,7 +1258,7 @@ Lbl BS
 ClrHome
 Disp "EXAM FLOW"
 Disp "AFTER EACH PART"
-Disp "ASK: DID I USE"
+Disp "ASK DID I USE"
 Disp "RIGHT LAW"
 Pause
 ClrHome

@@ -41,12 +41,28 @@ def screen(*pages):
     return [list(pg) for pg in pages]
 
 
+def _safe_text(s):
+    return s.replace(":", "")
+
+
+def _disp_wrapped(lines, text):
+    text = _safe_text(text)
+    if not text:
+        lines.append('Disp " "')
+        return
+    while len(text) > 16:
+        lines.append(f'Disp "{text[:16]}"')
+        text = text[16:]
+    lines.append(f'Disp "{text}"')
+
+
 def add_text(lines, label, title, text_pages, back):
     lines += [f"Lbl {label}"]
     for pg in text_pages:
-        lines += ["ClrHome", f'Disp "{title}"']
+        lines += ["ClrHome"]
+        _disp_wrapped(lines, title)
         for item in pg:
-            lines.append(f'Disp "{item}"')
+            _disp_wrapped(lines, item)
         lines.append("Pause")
     lines.append(f'Menu("NEXT","BACK",{back},"HOME",{H},"EXIT",{EX})')
 
