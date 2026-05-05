@@ -1,0 +1,1384 @@
+Degree
+ClrHome
+Disp "PHYFRQ25"
+Disp "AP PHYS 1"
+Disp "FRQ COACH"
+Pause
+Lbl H
+ClrHome
+Menu("FRQ HOME","Q1 MOM+ENER",Q1,"Q2 EN+SPR",Q2,"Q3 TORQUE",Q3,"Q4 FLUID",Q4,"FRQ SKILLS",FS,"EXAM FLOW",EF,"EXIT",EX)
+Lbl Q1
+ClrHome
+Menu("Q1 MOM+KE","SCENARIO",AA,"RULES",AB,"EQS",AC,"FLOW",AD,"SOLVE",AE,"TIPS",AF,"BACK",H)
+Lbl AA
+ClrHome
+Disp "Q1 SCENE"
+Disp "CART M1 MOVES"
+Disp "BLOCK M2 DROPS"
+Disp "THEY STICK"
+Pause
+ClrHome
+Disp "Q1 SCENE"
+Disp "DUR COLLISION"
+Disp "EXT HORIZ IMP"
+Disp "IS TINY"
+Pause
+ClrHome
+Disp "Q1 SCENE"
+Disp "USE X AXIS FOR"
+Disp "MOMENTUM EQ"
+Disp "DUR IMPACT"
+Pause
+ClrHome
+Disp "Q1 SCENE"
+Disp "AFTER CONTACT"
+Disp "BOTH SHARE"
+Disp "ONE VF"
+Pause
+ClrHome
+Disp "Q1 SCENE"
+Disp "MOMENTUM CAN"
+Disp "STAY SAME WHEN"
+Disp "KE DOES NOT"
+Pause
+ClrHome
+Disp "Q1 SCENE"
+Disp "EXPLAIN KE LOSS"
+Disp "THERMAL SOUND"
+Disp "DEFORMATION"
+Pause
+Menu("NEXT","BACK",Q1,"HOME",H,"EXIT",EX)
+Lbl AB
+ClrHome
+Disp "Q1 RULES"
+Disp "SYSTEM: BOTH"
+Disp "OBJECTS TOGETHER"
+Disp "FOR COLLISION"
+Pause
+ClrHome
+Disp "Q1 RULES"
+Disp "ONLY COMP WITH"
+Disp "NO EXT IMPULSE"
+Disp "IS CONSERVED"
+Pause
+ClrHome
+Disp "Q1 RULES"
+Disp "PICK + DIRECTION"
+Disp "KEEP SIGNS"
+Disp "CONSISTENT"
+Pause
+ClrHome
+Disp "Q1 RULES"
+Disp "INELASTIC: VF"
+Disp "SAME FOR BOTH"
+Disp "AFTER HIT"
+Pause
+ClrHome
+Disp "Q1 RULES"
+Disp "DO NOT FORCE KE"
+Disp "TO BE CONSERVED"
+Disp "IT IS NOT"
+Pause
+ClrHome
+Disp "Q1 RULES"
+Disp "SEPARATE PHASES"
+Disp "COLLISION VS"
+Disp "POST MOTION"
+Pause
+ClrHome
+Disp "Q1 RULES"
+Disp "JUSTIFY CLAIMS"
+Disp "WITH LAW + WHY"
+Disp "NOT JUST EQN"
+Pause
+Menu("NEXT","BACK",Q1,"HOME",H,"EXIT",EX)
+Lbl AC
+ClrHome
+Disp "Q1 EQS"
+Disp "P=MV"
+Pause
+ClrHome
+Disp "Q1 EQS"
+Disp "SUM PXI=SUM PXF"
+Pause
+ClrHome
+Disp "Q1 EQS"
+Disp "M1V1X+M2V2X="
+Disp "(M1+M2)VF"
+Pause
+ClrHome
+Disp "Q1 EQS"
+Disp "IF V2X=0 THEN"
+Disp "VF=M1V1X/(M1+M2)"
+Pause
+ClrHome
+Disp "Q1 EQS"
+Disp "KI=.5M1V1^2+"
+Disp ".5M2V2^2"
+Pause
+ClrHome
+Disp "Q1 EQS"
+Disp "KF=.5(M1+M2)VF^2"
+Pause
+ClrHome
+Disp "Q1 EQS"
+Disp "DK=KF-KI"
+Disp "INELASTIC DK<0"
+Pause
+Menu("NEXT","BACK",Q1,"HOME",H,"EXIT",EX)
+Lbl AD
+ClrHome
+Disp "Q1 FLOW"
+Disp "DRAW BEFORE AND"
+Disp "AFTER STATES"
+Disp "WITH AXIS"
+Pause
+ClrHome
+Disp "Q1 FLOW"
+Disp "MARK KNOWNS AND"
+Disp "ONE UNKNOWN"
+Disp "USUALLY VF"
+Pause
+ClrHome
+Disp "Q1 FLOW"
+Disp "WRITE MOM EQ IN"
+Disp "COMPONENT FORM"
+Disp "THEN SOLVE"
+Pause
+ClrHome
+Disp "Q1 FLOW"
+Disp "COMPUTE KI THEN"
+Disp "KF USING VF"
+Disp "KEEP UNITS"
+Pause
+ClrHome
+Disp "Q1 FLOW"
+Disp "FIND DK=KF-KI"
+Disp "STATE SIGN AND"
+Disp "PHYS MEANING"
+Pause
+ClrHome
+Disp "Q1 FLOW"
+Disp "IF GRAPH ASKED"
+Disp "LABEL AXES"
+Disp "SLOPE/AREA"
+Pause
+ClrHome
+Disp "Q1 FLOW"
+Disp "FOR JUSTIFY"
+Disp "CLAIM + LAW +"
+Disp "CONTEXT REASON"
+Pause
+Menu("NEXT","BACK",Q1,"HOME",H,"EXIT",EX)
+Lbl AE
+ClrHome
+Menu("Q1 SOLVE","VF STICK",AG,"DK STICK",AH,"P CHECK",AI,"BACK",Q1)
+Lbl AG
+ClrHome
+Input "M1",A
+Input "V1X",B
+Input "M2",C
+Input "V2X",D
+If A+C=0
+Then
+Goto AJ
+End
+(A*B+C*D)/(A+C)->E
+ClrHome
+Disp "VF=",E
+Pause
+Menu("NEXT","BACK",AE,"HOME",H,"EXIT",EX)
+Lbl AH
+ClrHome
+Input "M1",A
+Input "V1X",B
+Input "M2",C
+Input "V2X",D
+If A+C=0
+Then
+Goto AJ
+End
+A*B+C*D->E
+A+C->F
+E/F->G
+.5*A*B^2+.5*C*D^2->H
+.5*F*G^2->I
+I-H->J
+ClrHome
+Disp "VF=",G
+Disp "KI=",H
+Disp "KF=",I
+Disp "DK=",J
+Pause
+Menu("NEXT","BACK",AE,"HOME",H,"EXIT",EX)
+Lbl AI
+ClrHome
+Input "M1",A
+Input "V1X",B
+Input "M2",C
+Input "V2X",D
+Input "VF",E
+A*B+C*D->F
+(A+C)*E->G
+G-F->H
+ClrHome
+Disp "PI=",F
+Disp "PF=",G
+Disp "DP=",H
+Pause
+Menu("NEXT","BACK",AE,"HOME",H,"EXIT",EX)
+Lbl AF
+ClrHome
+Disp "Q1 TIPS"
+Disp "DROPPED BLOCK MAY"
+Disp "HAVE VY BUT X"
+Disp "CAN BE ZERO"
+Pause
+ClrHome
+Disp "Q1 TIPS"
+Disp "FINAL MASS IS"
+Disp "M1+M2 IN VF"
+Disp "AND KF"
+Pause
+ClrHome
+Disp "Q1 TIPS"
+Disp "VECTOR SIGNS"
+Disp "MATTER MORE"
+Disp "THAN SPEED"
+Pause
+ClrHome
+Disp "Q1 TIPS"
+Disp "CHECK LIMITS:"
+Disp "M2 BIG -> VF"
+Disp "SHOULD SHRINK"
+Pause
+ClrHome
+Disp "Q1 TIPS"
+Disp "UNITS CHECK:"
+Disp "P IN KG M/S"
+Disp "E IN J"
+Pause
+ClrHome
+Disp "Q1 TIPS"
+Disp "COMMON TRAP:"
+Disp "MOM CONS YES"
+Disp "KE CONS NO"
+Pause
+Menu("NEXT","BACK",Q1,"HOME",H,"EXIT",EX)
+Lbl Q2
+ClrHome
+Menu("Q2 EN+SPRING","SCENARIO",AK,"RULES",AL,"EQS",AM,"FLOW",AN,"SOLVE",AO,"TIPS",AP,"BACK",H)
+Lbl AK
+ClrHome
+Disp "Q2 SCENE"
+Disp "BLOCK SLIDES ON"
+Disp "FRICTIONLESS"
+Disp "RAMP"
+Pause
+ClrHome
+Disp "Q2 SCENE"
+Disp "LOSING UG WHILE"
+Disp "GAINING K OR"
+Disp "SPRING ENERGY"
+Pause
+ClrHome
+Disp "Q2 SCENE"
+Disp "AT MAX COMP"
+Disp "BLOCK SPEED"
+Disp "CAN BE ZERO"
+Pause
+ClrHome
+Disp "Q2 SCENE"
+Disp "MODEL WITH ONE"
+Disp "CONSISTENT ZERO"
+Disp "FOR UG"
+Pause
+ClrHome
+Disp "Q2 SCENE"
+Disp "ENERGY BAR CHART"
+Disp "HELPS TRACK"
+Disp "STATE CHANGES"
+Pause
+Menu("NEXT","BACK",Q2,"HOME",H,"EXIT",EX)
+Lbl AL
+ClrHome
+Disp "Q2 RULES"
+Disp "IF NO NONCONS"
+Disp "WORK THEN MECH"
+Disp "ENERGY CONS"
+Pause
+ClrHome
+Disp "Q2 RULES"
+Disp "UG DEPENDS ON"
+Disp "HEIGHT CHOICE"
+Disp "BE CONSISTENT"
+Pause
+ClrHome
+Disp "Q2 RULES"
+Disp "US USES X FROM"
+Disp "NATURAL LENGTH"
+Disp "NOT TOTAL LEN"
+Pause
+ClrHome
+Disp "Q2 RULES"
+Disp "RAMP HEIGHT USE"
+Disp "H=L SIN(TH)"
+Disp "TH FROM HORIZ"
+Pause
+ClrHome
+Disp "Q2 RULES"
+Disp "IF FRICTION OR"
+Disp "PUSH EXISTS"
+Disp "ADD WNC TERM"
+Pause
+ClrHome
+Disp "Q2 RULES"
+Disp "STATE INITIAL"
+Disp "AND FINAL"
+Disp "BEFORE EQUATION"
+Pause
+ClrHome
+Disp "Q2 RULES"
+Disp "GRAPH/BAR MUST"
+Disp "MATCH YOUR"
+Disp "EQUATION MODEL"
+Pause
+Menu("NEXT","BACK",Q2,"HOME",H,"EXIT",EX)
+Lbl AM
+ClrHome
+Disp "Q2 EQS"
+Disp "UG=MGH"
+Pause
+ClrHome
+Disp "Q2 EQS"
+Disp "US=.5KX^2"
+Pause
+ClrHome
+Disp "Q2 EQS"
+Disp "K=.5MV^2"
+Pause
+ClrHome
+Disp "Q2 EQS"
+Disp "MECH:I + WNC="
+Disp "MECH:F"
+Pause
+ClrHome
+Disp "Q2 EQS"
+Disp "REST TO REST:"
+Disp "MGH=.5KX^2"
+Pause
+ClrHome
+Disp "Q2 EQS"
+Disp "H=L SIN(TH)"
+Pause
+ClrHome
+Disp "Q2 EQS"
+Disp "V^2=2(MGH-.5KX^2)/M"
+Pause
+Menu("NEXT","BACK",Q2,"HOME",H,"EXIT",EX)
+Lbl AN
+ClrHome
+Disp "Q2 FLOW"
+Disp "DEFINE SYSTEM"
+Disp "BLOCK+EARTH+"
+Disp "SPRING AS NEEDED"
+Pause
+ClrHome
+Disp "Q2 FLOW"
+Disp "PICK TWO STATES"
+Disp "TOP AND MAX X"
+Disp "OR ANY POINT"
+Pause
+ClrHome
+Disp "Q2 FLOW"
+Disp "WRITE ENERGY EQ"
+Disp "WITH TERMS AT"
+Disp "EACH STATE"
+Pause
+ClrHome
+Disp "Q2 FLOW"
+Disp "SUB H=L SIN TH"
+Disp "IF HEIGHT IS"
+Disp "GEOMETRIC"
+Pause
+ClrHome
+Disp "Q2 FLOW"
+Disp "SOLVE ALGEBRA"
+Disp "THEN CHECK"
+Disp "PHYSICAL SIGN"
+Pause
+ClrHome
+Disp "Q2 FLOW"
+Disp "FOR BAR CHART"
+Disp "SHOW TOTAL SAME"
+Disp "IF CONSERVED"
+Pause
+ClrHome
+Disp "Q2 FLOW"
+Disp "IN JUSTIFICATION"
+Disp "NAME LAW AND"
+Disp "WHY VALID"
+Pause
+Menu("NEXT","BACK",Q2,"HOME",H,"EXIT",EX)
+Lbl AO
+ClrHome
+Disp "DEG MODE"
+Menu("Q2 SOLVE","H LTH",AQ,"X FROM E",AR,"K FROM X",AS,"V AT X",AT,"BACK",Q2)
+Lbl AQ
+ClrHome
+Input "L",A
+Input "TH DEG",B
+A*sin(B)->C
+ClrHome
+Disp "H=",C
+Pause
+Menu("NEXT","BACK",AO,"HOME",H,"EXIT",EX)
+Lbl AR
+ClrHome
+Input "M",A
+Input "H",B
+Input "G",C
+Input "K",D
+If D=0
+Then
+Goto AU
+End
+2*A*B*C/D->E
+If E<0
+Then
+Goto AX
+End
+E^.5->F
+ClrHome
+Disp "X=",F
+Pause
+Menu("NEXT","BACK",AO,"HOME",H,"EXIT",EX)
+Lbl AS
+ClrHome
+Input "M",A
+Input "H",B
+Input "G",C
+Input "X",D
+If D=0
+Then
+Goto AV
+End
+2*A*B*C/(D^2)->E
+ClrHome
+Disp "K=",E
+Pause
+Menu("NEXT","BACK",AO,"HOME",H,"EXIT",EX)
+Lbl AT
+ClrHome
+Input "M",A
+Input "H",B
+Input "G",C
+Input "K",D
+Input "X",E
+If A=0
+Then
+Goto AW
+End
+A*B*C-.5*D*E^2->F
+2*F/A->G
+If G<0
+Then
+Goto AX
+End
+G^.5->H
+ClrHome
+Disp "V=",H
+Pause
+Menu("NEXT","BACK",AO,"HOME",H,"EXIT",EX)
+Lbl AP
+ClrHome
+Disp "Q2 TIPS"
+Disp "DO NOT MIX UP"
+Disp "SPRING X WITH"
+Disp "RAMP DISTANCE"
+Pause
+ClrHome
+Disp "Q2 TIPS"
+Disp "KX IS FORCE"
+Disp "BUT US NEEDS"
+Disp ".5KX^2"
+Pause
+ClrHome
+Disp "Q2 TIPS"
+Disp "NEGATIVE UNDER"
+Disp "ROOT MEANS"
+Disp "BAD ASSUMPTION"
+Pause
+ClrHome
+Disp "Q2 TIPS"
+Disp "AT MAX X SPEED"
+Disp "IS ZERO NOT"
+Disp "ACCEL ZERO"
+Pause
+ClrHome
+Disp "Q2 TIPS"
+Disp "IF MASS CANCELS"
+Disp "SAY IT FROM"
+Disp "THE EQUATION"
+Pause
+ClrHome
+Disp "Q2 TIPS"
+Disp "LABEL UNITS:"
+Disp "K N/M X M"
+Disp "ENERGY J"
+Pause
+Menu("NEXT","BACK",Q2,"HOME",H,"EXIT",EX)
+Lbl Q3
+ClrHome
+Menu("Q3 TORQUE","SCENARIO",AY,"RULES",AZ,"EQS",A0,"FLOW",A1,"SOLVE",A2,"TIPS",A3,"BACK",H)
+Lbl AY
+ClrHome
+Disp "Q3 SCENE"
+Disp "METERSTICK HELD"
+Disp "AT ANGLE THETA"
+Disp "WITH TENSION"
+Pause
+ClrHome
+Disp "Q3 SCENE"
+Disp "USE TORQUE EQ"
+Disp "TO LINK FORCE"
+Disp "AND MASS"
+Pause
+ClrHome
+Disp "Q3 SCENE"
+Disp "PART A OFTEN"
+Disp "ASKS FOR DESIGN"
+Disp "AND PROCEDURE"
+Pause
+ClrHome
+Disp "Q3 SCENE"
+Disp "PART B OFTEN"
+Disp "ASKS GRAPH +"
+Disp "BEST FIT SLOPE"
+Pause
+ClrHome
+Disp "Q3 SCENE"
+Disp "LINEARIZE DATA"
+Disp "TO EXTRACT"
+Disp "UNKNOWN M"
+Pause
+Menu("NEXT","BACK",Q3,"HOME",H,"EXIT",EX)
+Lbl AZ
+ClrHome
+Disp "Q3 RULES"
+Disp "CHOOSE A PIVOT"
+Disp "TO REMOVE ONE"
+Disp "UNKNOWN TORQUE"
+Pause
+ClrHome
+Disp "Q3 RULES"
+Disp "TAU=R F SINTH"
+Disp "USE PERP PART"
+Disp "ONLY"
+Pause
+ClrHome
+Disp "Q3 RULES"
+Disp "SET CW NEG AND"
+Disp "CCW POS OR"
+Disp "VICE VERSA"
+Pause
+ClrHome
+Disp "Q3 RULES"
+Disp "STATIC EQUIL:"
+Disp "SUM TAU=0 AND"
+Disp "SUM F=0"
+Pause
+ClrHome
+Disp "Q3 RULES"
+Disp "VARY ONE INPUT"
+Disp "PER TRIAL KEEP"
+Disp "OTHERS FIXED"
+Pause
+ClrHome
+Disp "Q3 RULES"
+Disp "REPEAT TRIALS"
+Disp "AND USE AVG"
+Disp "TO CUT NOISE"
+Pause
+ClrHome
+Disp "Q3 RULES"
+Disp "GRAPH AXES MUST"
+Disp "MATCH LINEAR"
+Disp "MODEL FORM"
+Pause
+Menu("NEXT","BACK",Q3,"HOME",H,"EXIT",EX)
+Lbl A0
+ClrHome
+Disp "Q3 EQS"
+Disp "TAU=RFSIN(TH)"
+Pause
+ClrHome
+Disp "Q3 EQS"
+Disp "SUM TAU ABOUT"
+Disp "PIVOT = 0"
+Pause
+ClrHome
+Disp "Q3 EQS"
+Disp "AP 2025 FORM:"
+Disp "FT=5MG/(6SINTH)"
+Pause
+ClrHome
+Disp "Q3 EQS"
+Disp "LET Y=FT"
+Pause
+ClrHome
+Disp "Q3 EQS"
+Disp "LET X=1/SINTH"
+Pause
+ClrHome
+Disp "Q3 EQS"
+Disp "SLOPE=5MG/6"
+Pause
+ClrHome
+Disp "Q3 EQS"
+Disp "M=6*SLOPE/(5G)"
+Pause
+Menu("NEXT","BACK",Q3,"HOME",H,"EXIT",EX)
+Lbl A1
+ClrHome
+Disp "Q3 FLOW"
+Disp "DESIGN: LIST"
+Disp "EQUIP + WHAT"
+Disp "YOU MEASURE"
+Pause
+ClrHome
+Disp "Q3 FLOW"
+Disp "SET APPARATUS"
+Disp "SO THETA CAN"
+Disp "BE CHANGED"
+Pause
+ClrHome
+Disp "Q3 FLOW"
+Disp "FOR EACH TRIAL"
+Disp "MEASURE THETA"
+Disp "AND FT"
+Pause
+ClrHome
+Disp "Q3 FLOW"
+Disp "COMPUTE X=1/SIN"
+Disp "FOR EACH POINT"
+Disp "IN TABLE"
+Pause
+ClrHome
+Disp "Q3 FLOW"
+Disp "PLOT Y=FT VS X"
+Disp "DRAW BEST FIT"
+Disp "NOT DOT CONNECT"
+Pause
+ClrHome
+Disp "Q3 FLOW"
+Disp "READ SLOPE WITH"
+Disp "UNITS THEN"
+Disp "SOLVE FOR M"
+Pause
+ClrHome
+Disp "Q3 FLOW"
+Disp "DISCUSS ERROR:"
+Disp "ANGLE READ"
+Disp "SCALE CALIB"
+Pause
+Menu("NEXT","BACK",Q3,"HOME",H,"EXIT",EX)
+Lbl A2
+ClrHome
+Disp "DEG MODE"
+Menu("Q3 SOLVE","FT FROM M",A4,"M FROM FT",A5,"M FROM SLP",A6,"XVAR",A7,"BACK",Q3)
+Lbl A4
+ClrHome
+Input "M",A
+Input "G",B
+Input "TH DEG",C
+sin(C)->D
+If D=0
+Then
+Goto A8
+End
+5*A*B/(6*D)->E
+ClrHome
+Disp "FT=",E
+Pause
+Menu("NEXT","BACK",A2,"HOME",H,"EXIT",EX)
+Lbl A5
+ClrHome
+Input "FT",A
+Input "G",B
+Input "TH DEG",C
+sin(C)->D
+If B=0
+Then
+Goto A9
+End
+If D=0
+Then
+Goto A8
+End
+6*A*D/(5*B)->E
+ClrHome
+Disp "M=",E
+Pause
+Menu("NEXT","BACK",A2,"HOME",H,"EXIT",EX)
+Lbl A6
+ClrHome
+Input "SLOPE",A
+Input "G",B
+If B=0
+Then
+Goto A9
+End
+6*A/(5*B)->C
+ClrHome
+Disp "M=",C
+Pause
+Menu("NEXT","BACK",A2,"HOME",H,"EXIT",EX)
+Lbl A7
+ClrHome
+Input "TH DEG",A
+sin(A)->B
+If B=0
+Then
+Goto A8
+End
+1/B->C
+ClrHome
+Disp "X=1/SIN=",C
+Pause
+Menu("NEXT","BACK",A2,"HOME",H,"EXIT",EX)
+Lbl A3
+ClrHome
+Disp "Q3 TIPS"
+Disp "DEGREES MODE"
+Disp "MATTERS FOR"
+Disp "SIN THETA"
+Pause
+ClrHome
+Disp "Q3 TIPS"
+Disp "SINTH=0 IS BAD"
+Disp "AT 0 OR 180"
+Disp "MODEL FAILS"
+Pause
+ClrHome
+Disp "Q3 TIPS"
+Disp "SLOPE UNITS HELP"
+Disp "CHECK MASS"
+Disp "DIMENSIONS"
+Pause
+ClrHome
+Disp "Q3 TIPS"
+Disp "DO NOT FORCE"
+Disp "INTERCEPT 0"
+Disp "UNLESS DERIVED"
+Pause
+ClrHome
+Disp "Q3 TIPS"
+Disp "SHOW WHY LINEAR"
+Disp "WITH Y=MX+B"
+Disp "MAPPING"
+Pause
+ClrHome
+Disp "Q3 TIPS"
+Disp "CLEAR FREE BODY"
+Disp "AND PIVOT MARK"
+Disp "EARNS POINTS"
+Pause
+Menu("NEXT","BACK",Q3,"HOME",H,"EXIT",EX)
+Lbl Q4
+ClrHome
+Menu("Q4 BUOYANCY","SCENARIO",BA,"RULES",BB,"EQS",BC,"FLOW",BD,"SOLVE",BE,"TIPS",BF,"BACK",H)
+Lbl BA
+ClrHome
+Disp "Q4 SCENE"
+Disp "BLOCK SUBMERGED"
+Disp "IN FLUID THEN"
+Disp "RELEASED"
+Pause
+ClrHome
+Disp "Q4 SCENE"
+Disp "UP FORCE IS"
+Disp "BUOYANCY"
+Disp "DOWN IS WEIGHT"
+Pause
+ClrHome
+Disp "Q4 SCENE"
+Disp "COMPARE MOTION"
+Disp "IN FLUIDS WITH"
+Disp "DIFF DENSITY"
+Pause
+ClrHome
+Disp "Q4 SCENE"
+Disp "HIGHER RHO FLUID"
+Disp "MEANS BIGGER FB"
+Disp "SAME V"
+Pause
+ClrHome
+Disp "Q4 SCENE"
+Disp "THAT CHANGES NET"
+Disp "FORCE AND THUS"
+Disp "ACCELERATION"
+Pause
+Menu("NEXT","BACK",Q4,"HOME",H,"EXIT",EX)
+Lbl BB
+ClrHome
+Disp "Q4 RULES"
+Disp "DRAW FBD FIRST"
+Disp "FB UP MG DOWN"
+Disp "SET + UP"
+Pause
+ClrHome
+Disp "Q4 RULES"
+Disp "USE N2L: SUM F"
+Disp "= M A ALONG"
+Disp "ONE AXIS"
+Pause
+ClrHome
+Disp "Q4 RULES"
+Disp "FOR FULL SUBMERGE"
+Disp "DISPLACED V IS"
+Disp "BLOCK V"
+Pause
+ClrHome
+Disp "Q4 RULES"
+Disp "FB=RHO V G USE"
+Disp "FLUID RHO NOT"
+Disp "BLOCK RHO"
+Pause
+ClrHome
+Disp "Q4 RULES"
+Disp "SAME BLOCK MEANS"
+Disp "M AND V FIXED"
+Disp "BETWEEN FLUIDS"
+Pause
+ClrHome
+Disp "Q4 RULES"
+Disp "COMPARE SIGNS:"
+Disp "A POS UP WHEN"
+Disp "FB > MG"
+Pause
+ClrHome
+Disp "Q4 RULES"
+Disp "JUSTIFY WITH"
+Disp "CAUSE CHAIN"
+Disp "RHO->FB->A"
+Pause
+Menu("NEXT","BACK",Q4,"HOME",H,"EXIT",EX)
+Lbl BC
+ClrHome
+Disp "Q4 EQS"
+Disp "FB=RHO V G"
+Pause
+ClrHome
+Disp "Q4 EQS"
+Disp "FG=MG"
+Pause
+ClrHome
+Disp "Q4 EQS"
+Disp "SUM F=FB-FG=MA"
+Pause
+ClrHome
+Disp "Q4 EQS"
+Disp "A=(RHO V G-MG)/M"
+Pause
+ClrHome
+Disp "Q4 EQS"
+Disp "NEUTRAL WHEN"
+Disp "RHO=M/V"
+Pause
+ClrHome
+Disp "Q4 EQS"
+Disp "DA=G V(R2-R1)/M"
+Disp "SAME BLOCK CASE"
+Pause
+ClrHome
+Disp "Q4 EQS"
+Disp "IF RHO V < M"
+Disp "A IS NEGATIVE"
+Disp "DOWNWARD"
+Pause
+Menu("NEXT","BACK",Q4,"HOME",H,"EXIT",EX)
+Lbl BD
+ClrHome
+Disp "Q4 FLOW"
+Disp "STATE SYSTEM AND"
+Disp "SIGN DIRECTION"
+Disp "AT START"
+Pause
+ClrHome
+Disp "Q4 FLOW"
+Disp "WRITE FB AND FG"
+Disp "THEN NET FORCE"
+Disp "SYMBOLICALLY"
+Pause
+ClrHome
+Disp "Q4 FLOW"
+Disp "SOLVE FOR A"
+Disp "BEFORE NUMBERS"
+Disp "TO SHOW LOGIC"
+Pause
+ClrHome
+Disp "Q4 FLOW"
+Disp "FOR COMPARISON"
+Disp "HOLD M V G FIX"
+Disp "CHANGE RHO"
+Pause
+ClrHome
+Disp "Q4 FLOW"
+Disp "EXPLAIN WORDS:"
+Disp "BIGGER RHO ->"
+Disp "BIGGER FB"
+Pause
+ClrHome
+Disp "Q4 FLOW"
+Disp "THEN BIGGER"
+Disp "FB-MG -> BIGGER"
+Disp "UPWARD A"
+Pause
+ClrHome
+Disp "Q4 FLOW"
+Disp "CHECK LIMIT:"
+Disp "RHO=0 GIVES"
+Disp "A=-G"
+Pause
+Menu("NEXT","BACK",Q4,"HOME",H,"EXIT",EX)
+Lbl BE
+ClrHome
+Menu("Q4 SOLVE","A FROM RHO",BG,"RHO NEUT",BH,"A COMP",BI,"BACK",Q4)
+Lbl BG
+ClrHome
+Input "RHO",A
+Input "V",B
+Input "M",C
+Input "G",D
+If C=0
+Then
+Goto BJ
+End
+(A*B*D-C*D)/C->E
+ClrHome
+Disp "A=",E
+Pause
+Menu("NEXT","BACK",BE,"HOME",H,"EXIT",EX)
+Lbl BH
+ClrHome
+Input "M",A
+Input "V",B
+If B=0
+Then
+Goto BK
+End
+A/B->C
+ClrHome
+Disp "RHO=",C
+Pause
+Menu("NEXT","BACK",BE,"HOME",H,"EXIT",EX)
+Lbl BI
+ClrHome
+Input "RHO1",A
+Input "RHO2",B
+Input "V",C
+Input "M",D
+Input "G",E
+If D=0
+Then
+Goto BJ
+End
+(A*C*E-D*E)/D->F
+(B*C*E-D*E)/D->G
+G-F->H
+ClrHome
+Disp "A1=",F
+Disp "A2=",G
+Disp "DA=",H
+Pause
+Menu("NEXT","BACK",BE,"HOME",H,"EXIT",EX)
+Lbl BF
+ClrHome
+Disp "Q4 TIPS"
+Disp "DO NOT USE"
+Disp "PRESSURE EQ ALONE"
+Disp "WITHOUT FB STEP"
+Pause
+ClrHome
+Disp "Q4 TIPS"
+Disp "DENSITY OF FLUID"
+Disp "IS CONTROL KNOB"
+Disp "IN COMPARISON"
+Pause
+ClrHome
+Disp "Q4 TIPS"
+Disp "UNITS CHECK:"
+Disp "RHO KG/M^3"
+Disp "FB IN N"
+Pause
+ClrHome
+Disp "Q4 TIPS"
+Disp "IF PARTIAL SUB"
+Disp "USE DISPLACED V"
+Disp "NOT TOTAL V"
+Pause
+ClrHome
+Disp "Q4 TIPS"
+Disp "A CAN CHANGE"
+Disp "SIGN WITH FLUID"
+Disp "DENSITY"
+Pause
+ClrHome
+Disp "Q4 TIPS"
+Disp "EXPLAIN WITH FBD"
+Disp "NOT JUST FINAL"
+Disp "NUMBER"
+Pause
+Menu("NEXT","BACK",Q4,"HOME",H,"EXIT",EX)
+Lbl FS
+ClrHome
+Menu("FRQ SKILLS","COMMANDS",BL,"CER",BM,"GRAPHS",BN,"LAB DESIGN",BO,"UNIT CHECK",BP,"COMMON ERR",BQ,"BACK",H)
+Lbl BL
+ClrHome
+Disp "CMD WORDS"
+Disp "DESCRIBE: WHAT"
+Disp "HAPPENS + TREND"
+Disp "NO MATH NEEDED"
+Pause
+ClrHome
+Disp "CMD WORDS"
+Disp "EXPLAIN: WHAT +"
+Disp "WHY USING LAW"
+Disp "AND CONTEXT"
+Pause
+ClrHome
+Disp "CMD WORDS"
+Disp "JUSTIFY: CLAIM"
+Disp "EVIDENCE FROM"
+Disp "MODEL OR DATA"
+Pause
+ClrHome
+Disp "CMD WORDS"
+Disp "DERIVE: START"
+Disp "GENERAL EQN"
+Disp "SHOW ALGEBRA"
+Pause
+ClrHome
+Disp "CMD WORDS"
+Disp "COMPARE: SAME OR"
+Disp "DIFF THEN WHY"
+Disp "WITH PHYSICS"
+Pause
+Menu("NEXT","BACK",FS,"HOME",H,"EXIT",EX)
+Lbl BM
+ClrHome
+Disp "CER"
+Disp "CLAIM: DIRECT"
+Disp "ANSWER TO ASK"
+Disp "IN ONE LINE"
+Pause
+ClrHome
+Disp "CER"
+Disp "EVIDENCE: EQN"
+Disp "DATA OR GRAPH"
+Disp "VALUE"
+Pause
+ClrHome
+Disp "CER"
+Disp "REASONING:"
+Disp "CONNECT EVIDENCE"
+Disp "TO CLAIM"
+Pause
+ClrHome
+Disp "CER"
+Disp "USE BECAUSE"
+Disp "SO THAT LOGIC"
+Disp "IN SENTENCES"
+Pause
+ClrHome
+Disp "CER"
+Disp "FINISH WITH"
+Disp "UNITS AND SIGN"
+Disp "INTERPRETATION"
+Pause
+Menu("NEXT","BACK",FS,"HOME",H,"EXIT",EX)
+Lbl BN
+ClrHome
+Disp "GRAPH"
+Disp "LABEL AXES WITH"
+Disp "SYMBOL + UNITS"
+Disp "BEFORE PLOT"
+Pause
+ClrHome
+Disp "GRAPH"
+Disp "CHOOSE SCALE"
+Disp "THAT USES MOST"
+Disp "OF GRID"
+Pause
+ClrHome
+Disp "GRAPH"
+Disp "PLOT POINTS"
+Disp "CLEARLY THEN"
+Disp "BEST FIT LINE"
+Pause
+ClrHome
+Disp "GRAPH"
+Disp "SLOPE USE TWO"
+Disp "FAR APART PTS"
+Disp "ON BEST FIT"
+Pause
+ClrHome
+Disp "GRAPH"
+Disp "INTERCEPT MUST"
+Disp "MATCH MODEL"
+Disp "OR EXPLAIN"
+Pause
+Menu("NEXT","BACK",FS,"HOME",H,"EXIT",EX)
+Lbl BO
+ClrHome
+Disp "LAB"
+Disp "NAME WHAT YOU"
+Disp "CONTROL CHANGE"
+Disp "MEASURE"
+Pause
+ClrHome
+Disp "LAB"
+Disp "CHANGE ONE IV"
+Disp "KEEP OTHERS"
+Disp "CONSTANT"
+Pause
+ClrHome
+Disp "LAB"
+Disp "MULTIPLE TRIALS"
+Disp "AVERAGE RESULT"
+Disp "CUT RANDOM ERR"
+Pause
+ClrHome
+Disp "LAB"
+Disp "STATE TOOLS AND"
+Disp "HOW VALUES ARE"
+Disp "READ"
+Pause
+ClrHome
+Disp "LAB"
+Disp "MENTION MAIN"
+Disp "UNCERTAINTY AND"
+Disp "ITS EFFECT"
+Pause
+Menu("NEXT","BACK",FS,"HOME",H,"EXIT",EX)
+Lbl BP
+ClrHome
+Disp "UNITS"
+Disp "MKS DEFAULT:"
+Disp "M KG S N J"
+Disp "PA"
+Pause
+ClrHome
+Disp "UNITS"
+Disp "WRITE UNITS IN"
+Disp "EACH FINAL"
+Disp "NUMERIC ANSWER"
+Pause
+ClrHome
+Disp "UNITS"
+Disp "CHECK SLOPE UNIT"
+Disp "TO IDENTIFY"
+Disp "PHYS QUANTITY"
+Pause
+ClrHome
+Disp "UNITS"
+Disp "DIMENSION FAIL"
+Disp "MEANS ALGEBRA"
+Disp "OR MODEL ERROR"
+Pause
+Menu("NEXT","BACK",FS,"HOME",H,"EXIT",EX)
+Lbl BQ
+ClrHome
+Disp "TRAPS"
+Disp "USING SPEED WHEN"
+Disp "VECTOR SIGN"
+Disp "IS REQUIRED"
+Pause
+ClrHome
+Disp "TRAPS"
+Disp "ASSUMING CONS LAW"
+Disp "WITHOUT SYSTEM"
+Disp "AND CONDITIONS"
+Pause
+ClrHome
+Disp "TRAPS"
+Disp "SKIPPING FREE"
+Disp "BODY OR ENERGY"
+Disp "STATE DIAGRAM"
+Pause
+ClrHome
+Disp "TRAPS"
+Disp "FINAL NUMBER"
+Disp "WITHOUT EXPLAIN"
+Disp "LOSES REASONING"
+Pause
+ClrHome
+Disp "TRAPS"
+Disp "FORGETTING LIMIT"
+Disp "CHECK FOR"
+Disp "PHYS SENSE"
+Pause
+Menu("NEXT","BACK",FS,"HOME",H,"EXIT",EX)
+Lbl EF
+ClrHome
+Menu("EXAM FLOW","START",BR,"MID PASS",BS,"FINAL CHECK",BT,"MENTAL MAP",BU,"BACK",H)
+Lbl BR
+ClrHome
+Disp "EXAM FLOW"
+Disp "SCAN ALL PARTS"
+Disp "MARK EASY POINTS"
+Disp "FIRST"
+Pause
+ClrHome
+Disp "EXAM FLOW"
+Disp "SET AXES SIGN"
+Disp "AND SYSTEM EARLY"
+Disp "AVOID REWORK"
+Pause
+ClrHome
+Disp "EXAM FLOW"
+Disp "WRITE TARGET EQN"
+Disp "SYMBOLIC FIRST"
+Disp "THEN NUMBERS"
+Pause
+ClrHome
+Disp "EXAM FLOW"
+Disp "BOX FINAL WITH"
+Disp "UNITS SIGN"
+Disp "AND DIRECTION"
+Pause
+Menu("NEXT","BACK",EF,"HOME",H,"EXIT",EX)
+Lbl BS
+ClrHome
+Disp "EXAM FLOW"
+Disp "AFTER EACH PART"
+Disp "ASK: DID I USE"
+Disp "RIGHT LAW"
+Pause
+ClrHome
+Disp "EXAM FLOW"
+Disp "IF STUCK SWITCH"
+Disp "TO NEXT PART"
+Disp "COME BACK"
+Pause
+ClrHome
+Disp "EXAM FLOW"
+Disp "USE GIVEN INFO"
+Disp "GRAPH OR TABLE"
+Disp "AS EVIDENCE"
+Pause
+ClrHome
+Disp "EXAM FLOW"
+Disp "KEEP WORK CLEAN"
+Disp "SO PARTIAL"
+Disp "CREDIT IS CLEAR"
+Pause
+Menu("NEXT","BACK",EF,"HOME",H,"EXIT",EX)
+Lbl BT
+ClrHome
+Disp "EXAM FLOW"
+Disp "CHECK SIGNS"
+Disp "UP OR DOWN"
+Disp "LEFT OR RIGHT"
+Pause
+ClrHome
+Disp "EXAM FLOW"
+Disp "CHECK LIMITS"
+Disp "EXTREME VALUES"
+Disp "MAKE SENSE"
+Pause
+ClrHome
+Disp "EXAM FLOW"
+Disp "CHECK DECIMAL"
+Disp "AND ROUNDING"
+Disp "AT THE END"
+Pause
+ClrHome
+Disp "EXAM FLOW"
+Disp "CHECK WORD ASK"
+Disp "COMPARE EXPLAIN"
+Disp "JUSTIFY MATCH"
+Pause
+Menu("NEXT","BACK",EF,"HOME",H,"EXIT",EX)
+Lbl BU
+ClrHome
+Disp "RULE MAP"
+Disp "MOTION CHANGE?"
+Disp "LOOK AT NET F"
+Disp "OR IMPULSE"
+Pause
+ClrHome
+Disp "RULE MAP"
+Disp "ROTATION STATIC?"
+Disp "SUM TAU=0"
+Disp "AND SUM F=0"
+Pause
+ClrHome
+Disp "RULE MAP"
+Disp "ENERGY STATE?"
+Disp "TRACK K UG US"
+Disp "PLUS LOSSES"
+Pause
+ClrHome
+Disp "RULE MAP"
+Disp "FLUID FORCE?"
+Disp "FB=RHO V G"
+Disp "THEN N2L"
+Pause
+ClrHome
+Disp "RULE MAP"
+Disp "COLLISION?"
+Disp "MOMENTUM FIRST"
+Disp "KE SECOND"
+Pause
+Menu("NEXT","BACK",EF,"HOME",H,"EXIT",EX)
+Lbl AJ
+ClrHome
+Disp "M SUM CANT 0"
+Pause
+Menu("NEXT","BACK",AE,"HOME",H,"EXIT",EX)
+Lbl AU
+ClrHome
+Disp "K CANT BE 0"
+Pause
+Menu("NEXT","BACK",AO,"HOME",H,"EXIT",EX)
+Lbl AV
+ClrHome
+Disp "X CANT BE 0"
+Pause
+Menu("NEXT","BACK",AO,"HOME",H,"EXIT",EX)
+Lbl AW
+ClrHome
+Disp "M CANT BE 0"
+Pause
+Menu("NEXT","BACK",AO,"HOME",H,"EXIT",EX)
+Lbl AX
+ClrHome
+Disp "NEG UNDER ROOT"
+Pause
+Menu("NEXT","BACK",AO,"HOME",H,"EXIT",EX)
+Lbl A8
+ClrHome
+Disp "SIN TH CANT 0"
+Pause
+Menu("NEXT","BACK",A2,"HOME",H,"EXIT",EX)
+Lbl A9
+ClrHome
+Disp "G CANT BE 0"
+Pause
+Menu("NEXT","BACK",A2,"HOME",H,"EXIT",EX)
+Lbl BJ
+ClrHome
+Disp "M CANT BE 0"
+Pause
+Menu("NEXT","BACK",BE,"HOME",H,"EXIT",EX)
+Lbl BK
+ClrHome
+Disp "V CANT BE 0"
+Pause
+Menu("NEXT","BACK",BE,"HOME",H,"EXIT",EX)
+Lbl EX
+ClrHome
+Disp "PHYFRQ25 END"
+Stop
